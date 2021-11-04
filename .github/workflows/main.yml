@@ -47,7 +47,7 @@ jobs:
           path: app/build/reports/tests/testDebugUnitTest/
 
   package:
-    needs: [ static-code-analysis ]
+    needs: [ unit-test ]
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
