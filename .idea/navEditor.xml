@@ -44,6 +44,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="navigation_profile">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="navigation_rooms">
                     <value>
                       <LayoutPositions>
@@ -56,13 +68,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="profileFragment">
+                  <entry key="onboardingFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="464" />
-                            <option name="y" value="358" />
+                            <option name="x" value="-182" />
+                            <option name="y" value="8" />
                           </Point>
                         </option>
                       </LayoutPositions>
