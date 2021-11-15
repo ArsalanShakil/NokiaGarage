@@ -1,6 +1,8 @@
 package com.example.mygarage
 
 import android.os.Bundle
+import android.view.View
+import android.view.View.GONE
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
+        supportActionBar?.hide()
         navView.setupWithNavController(navController)
     }
 }
