@@ -12,14 +12,24 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.mygarage.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_equipment"
+        android:name="com.example.mygarage.ui.equipment.EquipmentFragment"
+        android:label="@string/title_equipment"
+        tools:layout="@layout/fragment_equipment" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.mygarage.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_rooms"
+        android:name="com.example.mygarage.ui.rooms.RoomsFragment"
+        android:label="@string/title_rooms"
+        tools:layout="@layout/fragment_rooms" />
+    <fragment
+        android:id="@+id/navigation_calendar"
+        android:name="com.example.mygarage.ui.calendar.CalendarFragment"
+        android:label="calendar_fragment"
+        tools:layout="@layout/calendar_fragment" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.mygarage.ui.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
 </navigation>
