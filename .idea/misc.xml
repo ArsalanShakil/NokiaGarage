@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
+        <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/drawable/bottom_nav_bar.xml" value="0.3138888888888889" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.26979166666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2657276698264891" />
