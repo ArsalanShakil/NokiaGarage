@@ -1,14 +1,13 @@
-package com.example.mygarage
+package com.example.mygarage.ui
 
 import android.os.Bundle
-import android.view.View
-import android.view.View.GONE
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.mygarage.R
 import com.example.mygarage.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_equipment, R.id.navigation_rooms,
-                R.id.navigation_calendar,R.id.navigation_profile
+                R.id.navigation_calendar, R.id.navigation_profile
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
