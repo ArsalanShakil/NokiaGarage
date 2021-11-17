@@ -20,7 +20,7 @@ class ReservationsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.reservations_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_reservations, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

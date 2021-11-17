@@ -61,4 +61,11 @@ dependencies {
     testImplementation "org.mockito:mockito-core:$mockito_version"
     testImplementation "org.mockito:mockito-inline:$mockito_version"
 
+    //scalable units
+    implementation "com.intuit.sdp:sdp-android:$scalable_version"
+    implementation "com.intuit.ssp:ssp-android:$scalable_version"
+
+    //dot indicator
+    implementation "com.tbuonomo.andrui:viewpagerdotsindicator:$dot_version"
+
 }

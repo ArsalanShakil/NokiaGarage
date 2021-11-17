@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MyGarage" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.Onboarding" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_blue</item>
         <item name="colorPrimaryVariant">@color/nokia_blue</item>
@@ -14,5 +14,11 @@
         <!-- Customize your theme here. -->
         <item name="android:textColor">@color/text_blue</item>
 
+    </style>
+    <style name="Theme.Onboarding.fullscreen" parent="Theme.Onboarding">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionBarOverlay">@null</item>
     </style>
 </resources>
