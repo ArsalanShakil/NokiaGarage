@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/activity_main.xml" value="0.16893115942028986" />
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/fragment_calendar.xml" value="0.16893115942028986" />
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/fragment_equipment.xml" value="0.16893115942028986" />
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/fragment_home.xml" value="0.16893115942028986" />
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/fragment_profile.xml" value="0.16893115942028986" />
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/fragment_rooms.xml" value="0.16893115942028986" />
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/onboarding_fragment.xml" value="0.16893115942028986" />
+        <entry key="..\:/3rd Year/1st Period/NokiaGarage/app/src/main/res/layout/reservations_fragment.xml" value="0.16893115942028986" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/drawable/bottom_nav_bar.xml" value="0.3138888888888889" />
