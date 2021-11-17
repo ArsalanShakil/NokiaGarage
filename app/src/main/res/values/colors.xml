@@ -10,4 +10,7 @@
     <color name="primary_blue">#3975EA</color>
     <color name="nokia_blue">#1C4598</color>
     <color name="text_blue">#163E72</color>
+
+    <color name="nokiaBlue">#124191</color>
+    <color name="nokiaBluePressed">#122071</color>
 </resources>
