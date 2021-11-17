@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentHomeBinding
 import com.example.mygarage.databinding.FragmentSignInBinding
@@ -34,6 +35,15 @@ class SignInFragment : Fragment() {
         val root: View = binding.root
 
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.signupTxt.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_signInFragment_to_signUpFragment
+            )
+        }
     }
 
     override fun onDestroyView() {

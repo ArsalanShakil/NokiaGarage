@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentSignInBinding
 import com.example.mygarage.databinding.FragmentSignUpBinding
@@ -33,6 +34,14 @@ class SignUpFragment : Fragment() {
         return root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.goBackTxt.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_signUpFragment_to_signInFragment
+            )
+        }
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
