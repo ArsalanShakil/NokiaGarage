@@ -339,9 +339,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_next" />
-                            <entry key="sourceFile" value="C:\Users\19666\Downloads\home.svg" />
+                            <entry key="outputName" value="ic_progress3" />
+                            <entry key="sourceFile" value="C:\Users\19666\OneDrive\Metropolia UAS 3rd year\Nokia-Garage-img\ic_progress3.svg" />
                           </map>
                         </option>
                       </PersistentState>

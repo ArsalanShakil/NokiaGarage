@@ -1,65 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
     tools:context=".ui.onboarding.OnboardingFragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@+id/worm_dot"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
-        android:id="@+id/worm_dot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:dotsColor="@color/btn_next"
-        app:dotsSize="@dimen/_12sdp"
-        app:dotsSpacing="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_25sdp"
-        app:layout_constraintBottom_toTopOf="@+id/txtNext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtNext"
-        android:layout_width="245dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/blue_button"
-        android:drawableEnd="@drawable/ic_next"
-        android:gravity="center"
-        android:paddingStart="90sp"
-        android:paddingEnd="70sp"
-        android:text="@string/tv_next"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.722"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtPrevious"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:background="@drawable/grey_button"
-        android:drawableStart="@drawable/ic_back"
-        android:paddingHorizontal="@dimen/_12sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtNext"
-        app:layout_constraintEnd_toStartOf="@+id/txtNext"
-        app:layout_constraintHorizontal_bias="0.702"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtNext" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
