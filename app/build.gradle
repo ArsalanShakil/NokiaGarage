@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -60,5 +61,12 @@ dependencies {
     //Mockito
     testImplementation "org.mockito:mockito-core:$mockito_version"
     testImplementation "org.mockito:mockito-inline:$mockito_version"
+
+    //viewpager2
+    implementation "com.tbuonomo.andrui:viewpagerdotsindicator:$dot_version"
+
+    //scalable units
+    implementation "com.intuit.sdp:sdp-android:$scalable_version"
+    implementation "com.intuit.ssp:ssp-android:$scalable_version"
 
 }
