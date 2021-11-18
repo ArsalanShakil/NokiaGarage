@@ -16,18 +16,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_background" />
+        app:srcCompat="@drawable/top_background"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="108dp"
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_avatar" />
+        app:srcCompat="@drawable/img_avatar"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView"
@@ -35,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:gravity="center"
-        android:text="Jane Doe"
+        android:text="@string/jane_doe"
         android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -49,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="jane.doe@nokia.fi"
+        android:text="@string/jane_doe_nokia_fi"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -61,7 +64,7 @@
         android:id="@+id/profile_button_id"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="256dp"
         android:text="@string/logout"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -69,7 +72,6 @@
         app:backgroundTint="@color/primary_blue"
         app:cornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:rippleColor="@color/nokia_blue"

@@ -30,4 +30,8 @@ equipment or room</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start">Start</string>
+    <string name="jane_doe_nokia_fi">jane.doe@nokia.fi</string>
+    <string name="jane_doe">Jane Doe</string>
+    <string name="media_lab">Media Lab</string>
+    <string name="work_shop">Work Shop</string>
 </resources>
