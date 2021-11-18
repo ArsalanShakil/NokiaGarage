@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentRoomsBinding
 
 class RoomsFragment : Fragment() {
@@ -30,6 +32,16 @@ class RoomsFragment : Fragment() {
         _binding = FragmentRoomsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.reserveMedialabId.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_rooms_to_reservationsFragment)
+        }
+        binding.reserveWorkshopId.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_rooms_to_reservationsFragment)
+        }
     }
 
     override fun onDestroyView() {
