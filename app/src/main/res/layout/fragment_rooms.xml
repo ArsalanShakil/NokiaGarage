@@ -6,17 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".ui.rooms.RoomsFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/media_lab_id"
+        android:layout_width="320dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/media_lab_room"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/work_shop_id"
+        android:layout_width="320dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/work_shop_room"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/media_lab_id" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/reserve_medialab_id"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_custom"
+        android:enabled="true"
+        android:text="@string/reserve_room"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/media_lab_id"
+        app:layout_constraintEnd_toEndOf="@+id/media_lab_id"
+        app:layout_constraintStart_toStartOf="@+id/media_lab_id" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/reserve_workshop_id"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_custom"
+        android:enabled="true"
+        android:text="@string/reserve_room"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/work_shop_id"
+        app:layout_constraintEnd_toEndOf="@+id/work_shop_id"
+        app:layout_constraintStart_toStartOf="@+id/work_shop_id" />
 </androidx.constraintlayout.widget.ConstraintLayout>

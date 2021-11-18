@@ -29,11 +29,6 @@ class RoomsFragment : Fragment() {
 
         _binding = FragmentRoomsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textNotifications
-        roomsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
         return root
     }
 
