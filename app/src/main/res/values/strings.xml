@@ -5,4 +5,12 @@
     <string name="title_rooms">Rooms</string>
     <string name="title_calendar">Calendar</string>
     <string name="title_profile">Profile</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="signup"><u>signup</u></string>
+    <string name="new_here">new here?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="go_back"><u>go back</u></string>
+    <string name="name">Name</string>
 </resources>
