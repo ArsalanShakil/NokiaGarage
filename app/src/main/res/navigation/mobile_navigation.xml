@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/onboardingSplashFragment">
+    app:startDestination="@id/onboardingFragment">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -60,20 +60,4 @@
         android:name="com.example.mygarage.ui.reservations.ReservationsFragment"
         android:label="reservations_fragment"
         tools:layout="@layout/fragment_reservations" />
-    <fragment
-        android:id="@+id/onboardingSplashFragment"
-        android:name="com.example.mygarage.ui.onboarding.OnboardingSplashFragment"
-        android:label="fragment_onboarding_splash"
-        tools:layout="@layout/fragment_onboarding_splash" >
-        <action
-            android:id="@+id/action_onboardingSplashFragment_to_onboardingFragment"
-            app:destination="@id/onboardingFragment"
-            app:popUpTo="@id/onboardingSplashFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_onboardingSplashFragment_to_navigation_home"
-            app:destination="@id/navigation_home"
-            app:popUpTo="@id/onboardingSplashFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
 </navigation>
