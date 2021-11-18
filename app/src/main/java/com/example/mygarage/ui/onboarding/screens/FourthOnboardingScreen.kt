@@ -25,7 +25,7 @@ class FourthOnboardingScreen : Fragment() {
 
         view.txtNext4.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
-            onBoardingFinished()
+           /* onBoardingFinished()*/
         }
 
         view.txtPrevious4.setOnClickListener {
@@ -37,11 +37,11 @@ class FourthOnboardingScreen : Fragment() {
         return view
     }
 
-    private fun onBoardingFinished() {
+/*    private fun onBoardingFinished() {
         val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putBoolean("Finished", true)
         editor.apply()
-    }
+    }*/
 
 }
