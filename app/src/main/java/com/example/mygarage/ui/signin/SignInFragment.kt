@@ -44,6 +44,11 @@ class SignInFragment : Fragment() {
                 R.id.action_signInFragment_to_signUpFragment
             )
         }
+        binding.signInBtn.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_signInFragment_to_navigation_home
+            )
+        }
     }
 
     override fun onDestroyView() {
