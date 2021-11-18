@@ -55,7 +55,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtNext"
-        android:layout_width="245dp"
+        android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginBottom="44dp"
         android:background="@drawable/blue_button"
@@ -68,20 +68,7 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.704"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtPrevious"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:background="@drawable/grey_button"
-        android:drawableStart="@drawable/ic_back"
-        android:paddingHorizontal="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtNext"
-        app:layout_constraintEnd_toStartOf="@+id/txtNext"
-        app:layout_constraintHorizontal_bias="0.702"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtNext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

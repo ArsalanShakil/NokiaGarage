@@ -48,13 +48,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_progress4"
-        app:layout_constraintBottom_toTopOf="@+id/txtNext4"
+        app:layout_constraintBottom_toTopOf="@+id/startTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtNext4"
+        android:id="@+id/startTxt"
         android:layout_width="245dp"
         android:layout_height="55dp"
         android:layout_marginBottom="44dp"
@@ -63,7 +63,7 @@
         android:gravity="center"
         android:paddingStart="90sp"
         android:paddingEnd="70sp"
-        android:text="@string/tv_next"
+        android:text="@string/start"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,10 +79,10 @@
         android:background="@drawable/grey_button"
         android:drawableStart="@drawable/ic_back"
         android:paddingHorizontal="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtNext4"
-        app:layout_constraintEnd_toStartOf="@+id/txtNext4"
+        app:layout_constraintBottom_toBottomOf="@+id/startTxt"
+        app:layout_constraintEnd_toStartOf="@+id/startTxt"
         app:layout_constraintHorizontal_bias="0.702"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtNext4" />
+        app:layout_constraintTop_toTopOf="@+id/startTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

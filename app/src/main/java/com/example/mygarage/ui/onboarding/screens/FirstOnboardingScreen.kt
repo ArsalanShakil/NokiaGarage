@@ -25,9 +25,7 @@ class FirstOnboardingScreen : Fragment() {
             viewPager?.currentItem = 1
         }
 
-        view.txtPrevious.setOnClickListener {
-            Toast.makeText(context, "this is the first page", Toast.LENGTH_SHORT).show()
-        }
+
 
         return view
     }

@@ -1,6 +1,5 @@
 package com.example.mygarage.ui.onboarding.screens
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,7 +22,7 @@ class FourthOnboardingScreen : Fragment() {
 
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
 
-        view.txtNext4.setOnClickListener {
+        view.startTxt.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
            /* onBoardingFinished()*/
         }

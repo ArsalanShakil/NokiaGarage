@@ -7,11 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_blue">#3975EA</color>
+    <color name="primary_blue">#0062FF</color>
     <color name="nokia_blue">#1C4598</color>
     <color name="text_blue">#163E72</color>
     <color name="btn_previous">#D8D8D8</color>
     <color name="nokiaBlue">#124191</color>
     <color name="nokiaBluePressed">#122071</color>
-    <color name="btn_next">#0062FF</color>
 </resources>
