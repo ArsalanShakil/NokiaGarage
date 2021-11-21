@@ -69,4 +69,8 @@ dependencies {
     implementation "com.intuit.sdp:sdp-android:$scalable_version"
     implementation "com.intuit.ssp:ssp-android:$scalable_version"
 
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
 }
