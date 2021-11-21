@@ -13,4 +13,13 @@
     <color name="btn_previous">#D8D8D8</color>
     <color name="nokiaBlue">#124191</color>
     <color name="nokiaBluePressed">#122071</color>
+
+
+    <color name="list_color1">#D0F1EB</color>
+    <color name="list_color2">#FDC9D2</color>
+    <color name="list_color3">#D3E1FF</color>
+    <color name="list_color4">#F9E8BD</color>
+    <color name="list_color5">#BDEEF9</color>
+    <color name="list_color6">#BDF9EB</color>
+
 </resources>

@@ -9,6 +9,7 @@ buildscript {
     ext.scalable_version = "1.0.6"
     ext.dot_version = "4.1.2"
     ext.retrofit_version = "2.9.0"
+    ext.glide_version = "4.12.0"
 
 
 
