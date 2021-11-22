@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_reservationsFragment"
             app:destination="@id/reservationsFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
     </fragment>
 
     <fragment
@@ -88,4 +91,9 @@
             android:id="@+id/action_signUpFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="com.example.mygarage.ui.articledetails.ArticleDetailsFragment"
+        android:label="fragment_article_details"
+        tools:layout="@layout/fragment_article_details" />
 </navigation>
