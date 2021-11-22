@@ -3,6 +3,7 @@ package com.example.mygarage.dependencyinjection
 import com.example.mygarage.BuildConfig
 import com.example.mygarage.network.articles.ArticlesApi
 import com.example.mygarage.repository.Repository
+import com.example.mygarage.ui.home.ArticleRecyclerViewAdapter
 import com.example.mygarage.ui.home.HomeFragment
 import com.example.mygarage.ui.home.HomeViewModel
 import com.google.gson.GsonBuilder
@@ -34,6 +35,8 @@ private val viewModelModule: Module = module {
 private val fragmentModule: Module = module {
     factory { HomeFragment() }
 }
+
+
 
 private const val CONNECT_TIMEOUT = 15L
 private const val WRITE_TIMEOUT = 15L
@@ -69,7 +72,6 @@ private fun Scope.retrofitHttpClient(): OkHttpClient {
         writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
         readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
         retryOnConnectionFailure(true)
-        addInterceptor(get())
         addInterceptor(HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor.Level.HEADERS

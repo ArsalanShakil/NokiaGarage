@@ -2,13 +2,18 @@ package com.example.mygarage.ui.home
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mygarage.R
+import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.articles.ArticlesDataItem
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ArticleRecyclerViewAdapter(val context: Context, val articles: List<ArticlesDataItem>) : RecyclerView.Adapter<ArticleRecyclerViewHolder>() {
@@ -28,12 +33,15 @@ class ArticleRecyclerViewAdapter(val context: Context, val articles: List<Articl
         val index: Int = position % mColors.size
         holder.constraintLayout.setBackgroundColor(Color.parseColor(mColors[index]))
         holder.itemView.setOnClickListener{ view ->
-            view.findNavController().navigate(R.id.action_navigation_home_to_articleDetailsFragment)
-
+            val action = HomeFragmentDirections.actionNavigationHomeToArticleDetailsFragment(position)
+            view.findNavController().navigate(action)
+            Log.d("pos",position.toString())
         }
     }
 
     override fun getItemCount(): Int {
         return articles.size
     }
+
+
 }

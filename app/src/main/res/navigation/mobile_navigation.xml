@@ -95,5 +95,9 @@
         android:id="@+id/articleDetailsFragment"
         android:name="com.example.mygarage.ui.articledetails.ArticleDetailsFragment"
         android:label="fragment_article_details"
-        tools:layout="@layout/fragment_article_details" />
+        tools:layout="@layout/fragment_article_details" >
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
 </navigation>

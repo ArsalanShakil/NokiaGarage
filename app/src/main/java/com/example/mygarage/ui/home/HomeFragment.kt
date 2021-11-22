@@ -1,6 +1,7 @@
 package com.example.mygarage.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeFragment : Fragment() {
 
 
-    val homeViewModel: HomeViewModel by viewModel()
+    private val homeViewModel by viewModel<HomeViewModel>()
 
     private var _binding: FragmentHomeBinding? = null
     lateinit var adapter: ArticleRecyclerViewAdapter
@@ -41,8 +42,9 @@ class HomeFragment : Fragment() {
             adapter = ArticleRecyclerViewAdapter(requireContext(), it)
             articlesRecyclerview.adapter = adapter
             articlesRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
         })
+
+
     }
 
 
@@ -52,3 +54,5 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 }
+
+
