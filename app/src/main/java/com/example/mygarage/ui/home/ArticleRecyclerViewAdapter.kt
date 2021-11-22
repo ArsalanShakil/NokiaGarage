@@ -4,13 +4,10 @@ import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mygarage.R
-import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.articles.ArticlesDataItem
 
 
