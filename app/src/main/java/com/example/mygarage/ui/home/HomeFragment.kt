@@ -43,10 +43,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getArticles()
+
+        homeViewModel.artilceList.observe(viewLifecycleOwner, {
+            adapter = ArticleRecyclerViewAdapter(requireContext(), it)
+            articlesRecyclerview.adapter = adapter
+            articlesRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        })
     }
 
-    private fun getArticles() {
+/*    private suspend fun getArticles() {
         val articles = Articles.articlesInstance.getArticles()
         articles.enqueue(object : retrofit2.Callback<ArticlesData>{
             override fun onResponse(call: Call<ArticlesData>, response: Response<ArticlesData>) {
@@ -64,7 +70,7 @@ class HomeFragment : Fragment() {
             }
         })
 
-    }
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()
