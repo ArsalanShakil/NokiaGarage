@@ -19,7 +19,6 @@ class Repository(private val articlesApi : ArticlesApi) {
         if (articleResult?.body() != null) {
             articlesLiveData.postValue(articleResult.body())
         }
-
     }
 
 }
