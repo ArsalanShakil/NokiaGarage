@@ -3,11 +3,20 @@ package com.example.mygarage.ui.equipment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.mygarage.network.articles.ArticlesData
+import com.example.mygarage.network.equipments.EquipmentData
+import com.example.mygarage.repository.Repository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class EquipmentViewModel : ViewModel() {
+class EquipmentViewModel(val repository: Repository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getEquipments()
+        }
     }
-    val text: LiveData<String> = _text
+    val equipmentList: LiveData<EquipmentData>
+        get() = repository.equipment
 }
