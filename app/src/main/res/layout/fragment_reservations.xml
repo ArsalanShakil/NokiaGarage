@@ -1,13 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.reservations.ReservationsFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/reservation_card"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/list_color5"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
 
-</FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/reservation_img"
+                android:layout_width="69dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="28dp"
+                android:background="@drawable/ic_equipment_demo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/reservation_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Equipment"
+                app:layout_constraintBottom_toBottomOf="@+id/reservation_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/reservation_img"
+                app:layout_constraintTop_toTopOf="@+id/reservation_img" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/drawable/grey_button.xml" value="0.19322916666666667" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/drawable/ic_back.xml" value="0.19322916666666667" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/drawable/ic_back_base.xml" value="0.28489583333333335" />
+        <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/drawable/ic_equipment.xml" value="0.24375" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/drawable/ic_next.xml" value="0.28489583333333335" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/drawable/ic_progress1.xml" value="0.16111111111111112" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/activity_main.xml" value="0.13044579533941236" />
@@ -23,7 +24,7 @@
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_onboarding.xml" value="0.22" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_onboarding_splash.xml" value="0.20520833333333333" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_profile.xml" value="0.17708333333333334" />
-        <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_reservations.xml" value="0.1" />
+        <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_reservations.xml" value="0.33" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_rooms.xml" value="0.5" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_second_onboarding_screen.xml" value="0.17708333333333334" />
         <entry key="..\:/Appplications/Android/NokiaGarage/app/src/main/res/layout/fragment_second_screen.xml" value="0.17916666666666667" />
