@@ -1,13 +1,15 @@
 package com.example.mygarage.ui.reservations
 
+
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.mygarage.databinding.FragmentReservationsBinding
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,7 +27,7 @@ class ReservationsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         reservationsViewModel =
             ViewModelProvider(this)[ReservationsViewModel::class.java]
 
@@ -36,7 +38,6 @@ class ReservationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.reservationPickBtn.setOnClickListener {
-            Toast.makeText(context, "button clicked", Toast.LENGTH_SHORT).show()
             showDataRangePicker()
         }
     }
@@ -47,27 +48,25 @@ class ReservationsFragment : Fragment() {
     }
 
     private fun showDataRangePicker() {
-
-        val dateRangePicker =
-            MaterialDatePicker
-                .Builder.dateRangePicker()
-                .setTitleText("Select Date")
+        val datePicker =
+            MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select appointment date")
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .setCalendarConstraints(
+                    CalendarConstraints.Builder()
+                        .setValidator(DateValidatorPointForward.now()).build()
+                )
                 .build()
 
-        dateRangePicker.show(
+        datePicker.show(
             childFragmentManager,
             "date_range_picker"
         )
 
-        dateRangePicker.addOnPositiveButtonClickListener { dateSelected ->
-
-            val startDate = dateSelected.first
-            val endDate = dateSelected.second
-
-            if (startDate != null && endDate != null) {
+        datePicker.addOnPositiveButtonClickListener { dateSelected ->
+            if (dateSelected != null) {
                 binding.reservationTimeTv.text =
-                    "StartDate:" + convertLongToTime(startDate)+
-                "\nEndDate:" + convertLongToTime(endDate)
+                    "Date Selected: ${convertLongToTime(dateSelected)}"
             }
         }
     }
@@ -76,7 +75,8 @@ class ReservationsFragment : Fragment() {
         val date = Date(time)
         val format = SimpleDateFormat(
             "dd.MM.yyyy",
-            Locale.getDefault())
+            Locale.getDefault()
+        )
         return format.format(date)
     }
 }
