@@ -36,4 +36,6 @@ equipment or room</string>
     <string name="work_shop">Work Shop</string>
     <string name="articles">Articles</string>
     <string name="title">title</string>
+    <string name="save_reservation">Save Reservation</string>
+    <string name="equipment">Equipment</string>
 </resources>

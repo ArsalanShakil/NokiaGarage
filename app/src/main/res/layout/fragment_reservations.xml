@@ -15,9 +15,8 @@
         app:cardCornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-
+        app:layout_constraintTop_toTopOf="parent">
+        
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -36,7 +35,7 @@
                 android:id="@+id/reservation_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Equipment"
+                android:text="@string/equipment"
                 app:layout_constraintBottom_toBottomOf="@+id/reservation_img"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/reservation_img"
@@ -44,4 +43,21 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reservation_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/save_reservation"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/primary_blue"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/reservation_card"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/reservation_card"
+        app:rippleColor="@color/nokia_blue"
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
