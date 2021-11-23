@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.mygarage.databinding.FragmentReservationsBinding
 import com.google.android.material.datepicker.MaterialDatePicker
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ReservationsFragment : Fragment() {
 
@@ -57,5 +59,24 @@ class ReservationsFragment : Fragment() {
             "date_range_picker"
         )
 
+        dateRangePicker.addOnPositiveButtonClickListener { dateSelected ->
+
+            val startDate = dateSelected.first
+            val endDate = dateSelected.second
+
+            if (startDate != null && endDate != null) {
+                binding.reservationTimeTv.text =
+                    "StartDate:" + convertLongToTime(startDate)+
+                "\nEndDate:" + convertLongToTime(endDate)
+            }
+        }
+    }
+
+    private fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat(
+            "dd.MM.yyyy",
+            Locale.getDefault())
+        return format.format(date)
     }
 }
