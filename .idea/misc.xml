@@ -40,21 +40,26 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2657276698264891" />
         <entry key="app/src/main/res/layout/articles_recycler_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/calendar_fragment.xml" value="0.2418478260869565" />
-        <entry key="app/src/main/res/layout/fragment_article_details.xml" value="0.272058307371028" />
+        <entry key="app/src/main/res/layout/camera_recycler_item.xml" value="0.12259371833839919" />
+        <entry key="app/src/main/res/layout/fragment_article_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.2418478260869565" />
-        <entry key="app/src/main/res/layout/fragment_equipment.xml" value="0.2418478260869565" />
+        <entry key="app/src/main/res/layout/fragment_equipment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_first_onboarding_screen.xml" value="0.22960520620127653" />
         <entry key="app/src/main/res/layout/fragment_fourth_onboarding_screen.xml" value="0.2807710524331308" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3269238297588183" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.2418478260869565" />
         <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2418478260869565" />
+        <entry key="app/src/main/res/layout/fragment_reservations.xml" value="0.12259371833839919" />
         <entry key="app/src/main/res/layout/fragment_rooms.xml" value="0.1393939393939394" />
         <entry key="app/src/main/res/layout/fragment_second_onboarding_screen.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.12864583333333332" />
         <entry key="app/src/main/res/layout/onboarding_fragment.xml" value="0.12395833333333334" />
+        <entry key="app/src/main/res/layout/other_recycler_item.xml" value="0.12259371833839919" />
+        <entry key="app/src/main/res/layout/printer_recycler_item.xml" value="0.13179347826086957" />
         <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/vr_recycler_item.xml" value="0.32" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25364583333333335" />
       </map>
     </option>

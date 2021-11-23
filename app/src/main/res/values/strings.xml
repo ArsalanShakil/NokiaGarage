@@ -36,4 +36,8 @@ equipment or room</string>
     <string name="work_shop">Work Shop</string>
     <string name="articles">Articles</string>
     <string name="title">title</string>
+    <string name="printers_3d">3D printers</string>
+    <string name="vr_headsets">VR headsets</string>
+    <string name="cameras">Cameras</string>
+    <string name="others">Others</string>
 </resources>

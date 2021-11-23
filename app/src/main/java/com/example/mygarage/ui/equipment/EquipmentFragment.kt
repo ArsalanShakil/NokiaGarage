@@ -4,16 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygarage.databinding.FragmentEquipmentBinding
+import com.example.mygarage.ui.equipment.adaptars.CameraRecyclerViewAdapter
+import com.example.mygarage.ui.equipment.adaptars.OtherRecyclerViewAdapter
+import com.example.mygarage.ui.equipment.adaptars.PrinterRecyclerViewAdapter
+import com.example.mygarage.ui.equipment.adaptars.VrRecyclerViewAdapter
+import kotlinx.android.synthetic.main.fragment_equipment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EquipmentFragment : Fragment() {
 
-    private lateinit var equipmentViewModel: EquipmentViewModel
+    private val equipmentViewModel by viewModel<EquipmentViewModel>()
+
     private var _binding: FragmentEquipmentBinding? = null
+    lateinit var printerAdapter: PrinterRecyclerViewAdapter
+    lateinit var vrAdapter: VrRecyclerViewAdapter
+    lateinit var cameraAdapter: CameraRecyclerViewAdapter
+    lateinit var otherAdapter: OtherRecyclerViewAdapter
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,17 +34,34 @@ class EquipmentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        equipmentViewModel =
-            ViewModelProvider(this).get(EquipmentViewModel::class.java)
 
         _binding = FragmentEquipmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        equipmentViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        equipmentViewModel.equipmentList.observe(viewLifecycleOwner, {
+            printerAdapter = PrinterRecyclerViewAdapter(requireContext(), it.printers)
+            printersRecyclerview.adapter = printerAdapter
+            printersRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            vrAdapter = VrRecyclerViewAdapter(requireContext(), it.vrHeadsets)
+            vrRecyclerview.adapter = vrAdapter
+            vrRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            cameraAdapter = CameraRecyclerViewAdapter(requireContext(), it.cameras)
+            camerasRecyclerview.adapter = cameraAdapter
+            camerasRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            otherAdapter = OtherRecyclerViewAdapter(requireContext(), it.others)
+            othersRecyclerview.adapter = otherAdapter
+            othersRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        })
+
     }
 
     override fun onDestroyView() {
