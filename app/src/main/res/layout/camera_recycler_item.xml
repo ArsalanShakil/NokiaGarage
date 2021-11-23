@@ -24,7 +24,7 @@
 
         <ImageView
             android:id="@+id/cameraImg"
-            android:layout_width="120dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:contentDescription=""
             android:scaleType="fitCenter"
@@ -34,13 +34,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.111"
             app:srcCompat="@drawable/signup_img"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <TextView
             android:id="@+id/cameraNameTxt"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="@string/title"
+            android:textAlignment="center"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

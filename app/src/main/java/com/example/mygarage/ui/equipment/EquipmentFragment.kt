@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygarage.databinding.FragmentEquipmentBinding
 import com.example.mygarage.ui.equipment.adaptars.CameraRecyclerViewAdapter
+import com.example.mygarage.ui.equipment.adaptars.OtherRecyclerViewAdapter
 import com.example.mygarage.ui.equipment.adaptars.PrinterRecyclerViewAdapter
 import com.example.mygarage.ui.equipment.adaptars.VrRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_equipment.*
@@ -21,7 +22,7 @@ class EquipmentFragment : Fragment() {
     lateinit var printerAdapter: PrinterRecyclerViewAdapter
     lateinit var vrAdapter: VrRecyclerViewAdapter
     lateinit var cameraAdapter: CameraRecyclerViewAdapter
-    //lateinit var printerAdapter: PrinterRecyclerViewAdapter
+    lateinit var otherAdapter: OtherRecyclerViewAdapter
 
 
     // This property is only valid between onCreateView and
@@ -54,6 +55,11 @@ class EquipmentFragment : Fragment() {
             cameraAdapter = CameraRecyclerViewAdapter(requireContext(), it.cameras)
             camerasRecyclerview.adapter = cameraAdapter
             camerasRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            otherAdapter = OtherRecyclerViewAdapter(requireContext(), it.others)
+            othersRecyclerview.adapter = otherAdapter
+            othersRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
         })
 
     }
