@@ -35,8 +35,8 @@ class ReservationsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.reservationPickBtn.setOnClickListener {
             Toast.makeText(context, "button clicked", Toast.LENGTH_SHORT).show()
+            showDataRangePicker()
         }
-
     }
 
     override fun onDestroyView() {
@@ -45,11 +45,17 @@ class ReservationsFragment : Fragment() {
     }
 
     private fun showDataRangePicker() {
+
         val dateRangePicker =
             MaterialDatePicker
                 .Builder.dateRangePicker()
                 .setTitleText("Select Date")
                 .build()
+
+        dateRangePicker.show(
+            childFragmentManager,
+            "date_range_picker"
+        )
 
     }
 }
