@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygarage.databinding.FragmentEquipmentBinding
+import com.example.mygarage.ui.equipment.adaptars.CameraRecyclerViewAdapter
+import com.example.mygarage.ui.equipment.adaptars.PrinterRecyclerViewAdapter
+import com.example.mygarage.ui.equipment.adaptars.VrRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_equipment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -14,6 +18,11 @@ class EquipmentFragment : Fragment() {
     private val equipmentViewModel by viewModel<EquipmentViewModel>()
 
     private var _binding: FragmentEquipmentBinding? = null
+    lateinit var printerAdapter: PrinterRecyclerViewAdapter
+    lateinit var vrAdapter: VrRecyclerViewAdapter
+    lateinit var cameraAdapter: CameraRecyclerViewAdapter
+    //lateinit var printerAdapter: PrinterRecyclerViewAdapter
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,9 +43,18 @@ class EquipmentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         equipmentViewModel.equipmentList.observe(viewLifecycleOwner, {
-            camerasTxt.text = it.cameras[0].name
-        })
+            printerAdapter = PrinterRecyclerViewAdapter(requireContext(), it.printers)
+            printersRecyclerview.adapter = printerAdapter
+            printersRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
+            vrAdapter = VrRecyclerViewAdapter(requireContext(), it.vrHeadsets)
+            vrRecyclerview.adapter = vrAdapter
+            vrRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            cameraAdapter = CameraRecyclerViewAdapter(requireContext(), it.cameras)
+            camerasRecyclerview.adapter = cameraAdapter
+            camerasRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        })
 
     }
 

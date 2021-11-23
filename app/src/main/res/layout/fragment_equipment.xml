@@ -5,41 +5,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/articleDetailsPage"
     android:layout_width="match_parent"
+    android:layout_marginBottom="54dp"
     android:layout_height="fill_parent">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ui.equipment.EquipmentFragment">
-
-    <TextView
-        android:id="@+id/camerasTxt"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="@string/printers_3d"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04000002" />
+        tools:context=".ui.equipment.EquipmentFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/printersRecyclerview"
-        android:layout_width="wrap_content"
-        android:layout_height="240dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camerasTxt" />
+        <TextView
+            android:id="@+id/printerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/printers_3d"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.04000002" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/printersRecyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="230dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/printerTxt" />
+
+        <TextView
+            android:id="@+id/vrTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vr_headsets"
+            android:layout_marginTop="24dp"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/printersRecyclerview" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vrRecyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="165dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vrTxt" />
+
+        <TextView
+            android:id="@+id/camerasTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cameras"
+            android:layout_marginTop="24dp"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vrRecyclerview" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/camerasRecyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/camerasTxt" />
+
+        <TextView
+            android:id="@+id/othersTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/others"
+            android:layout_marginTop="24dp"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/camerasRecyclerview" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/othersRecyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/othersTxt" />
 
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
