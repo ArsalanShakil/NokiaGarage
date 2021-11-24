@@ -39,4 +39,5 @@ equipment or room</string>
     <string name="save_reservation">Save Reservation</string>
     <string name="equipment">Equipment</string>
     <string name="pick_a_date">Pick a Date</string>
+    <string name="pick_a_time">Pick a Time</string>
 </resources>
