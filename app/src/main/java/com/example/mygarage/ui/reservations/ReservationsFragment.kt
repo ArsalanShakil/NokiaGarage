@@ -4,6 +4,7 @@ package com.example.mygarage.ui.reservations
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.format.DateFormat.is24HourFormat
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.log
 
 class ReservationsFragment : Fragment() {
 
@@ -75,15 +77,15 @@ class ReservationsFragment : Fragment() {
         datePicker.addOnPositiveButtonClickListener { dateSelected ->
             if (dateSelected != null) {
                 binding.reservationTimeTv.text =
-                    "Date Selected: ${convertLongToTime(dateSelected)}"
+                    "Date Selected: ${convertLongToDay(dateSelected)}"
             }
         }
     }
 
-    private fun convertLongToTime(time: Long): String {
+    private fun convertLongToDay(time: Long): String {
         val date = Date(time)
         val format = SimpleDateFormat(
-            "dd.MM.yyyy",
+            "dd.MM.yyyy HH.mm",
             Locale.getDefault()
         )
         return format.format(date)
@@ -101,6 +103,16 @@ class ReservationsFragment : Fragment() {
             .setMinute(0)
             .setTitleText("Select appointment time")
             .build()
+
         timePicker.show(childFragmentManager, "time_range_picker")
+
+        timePicker.addOnPositiveButtonClickListener { dateSelected ->
+            if (dateSelected != null) {
+            //    binding.tvTimePickBtn.text =
+             //       "Date Selected: ${convertLongToDay(dateSelected)}"
+                Log.d("tagg",dateSelected.toString())
+            }
+
+        }
     }
 }
