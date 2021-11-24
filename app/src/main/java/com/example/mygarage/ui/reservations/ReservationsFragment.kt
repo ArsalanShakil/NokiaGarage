@@ -47,6 +47,6 @@ class ReservationsFragment : Fragment() {
 
     private fun showTimePickerDialog() {
         val newFragment = TimePickerFragment()
-        newFragment.show(requireActivity().supportFragmentManager, "timePicker")
+        newFragment.show(requireActivity().supportFragmentManager, "datePicker")
     }
 }
