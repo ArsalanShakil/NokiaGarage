@@ -9,6 +9,7 @@ import com.example.mygarage.ui.equipment.EquipmentViewModel
 import com.example.mygarage.ui.home.ArticleRecyclerViewAdapter
 import com.example.mygarage.ui.home.HomeFragment
 import com.example.mygarage.ui.home.HomeViewModel
+import com.example.mygarage.ui.reservations.ReservationsViewModel
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -37,7 +38,7 @@ private val repositoryModule : Module = module {
 private val viewModelModule: Module = module {
     viewModel { HomeViewModel(get()) }
     viewModel { EquipmentViewModel(get()) }
-
+    viewModel {ReservationsViewModel()}
 }
 private val fragmentModule: Module = module {
     factory { HomeFragment() }
