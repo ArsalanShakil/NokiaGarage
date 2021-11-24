@@ -1,6 +1,5 @@
 package com.example.mygarage.ui.reservations
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mygarage.R
 import com.example.mygarage.ui.reservations.datetime.DatePickerFragment
+import com.example.mygarage.ui.reservations.datetime.TimePickerFragment
 import kotlinx.android.synthetic.main.fragment_reservations.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -27,6 +27,12 @@ class ReservationsFragment : Fragment() {
         day_pick_btn.setOnClickListener {
             showDatePickerDialog()
         }
+        time_pick_btn.setOnClickListener {
+            showTimePickerDialog()
+        }
+        viewModel.dateString.observe(viewLifecycleOwner,{
+            reservation_time_tv.text = it
+        })
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -39,4 +45,8 @@ class ReservationsFragment : Fragment() {
         newFragment.show(requireActivity().supportFragmentManager, "datePicker")
     }
 
+    private fun showTimePickerDialog() {
+        val newFragment = TimePickerFragment()
+        newFragment.show(requireActivity().supportFragmentManager, "timePicker")
+    }
 }

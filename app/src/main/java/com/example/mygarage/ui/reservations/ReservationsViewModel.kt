@@ -17,4 +17,11 @@ class ReservationsViewModel : ViewModel() {
         date.set(Calendar.YEAR, year)
         dateString.value = dateFormatter.format(date.time)
     }
+
+    fun selectHourMinute(hour: Int, minute: Int) {
+        date.set(Calendar.HOUR_OF_DAY, hour)
+        date.set(Calendar.MINUTE, minute)
+        date.set(Calendar.SECOND, 0)
+        dateString.value = dateFormatter.format(date.time)
+    }
 }
