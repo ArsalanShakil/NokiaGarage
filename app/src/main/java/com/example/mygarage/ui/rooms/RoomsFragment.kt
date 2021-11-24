@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentRoomsBinding
+import com.example.mygarage.ui.equipment.EquipmentFragmentDirections
 
 class RoomsFragment : Fragment() {
 
@@ -37,10 +39,13 @@ class RoomsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.reserveMedialabId.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_rooms_to_reservationsFragment)
+
+            val actionMedia = RoomsFragmentDirections.actionNavigationRoomsToReservationsFragment("#D3E1FF","https://i.ibb.co/3SxC3VS/workathome.png","Media Lab")
+            view.findNavController().navigate(actionMedia)
         }
         binding.reserveWorkshopId.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_rooms_to_reservationsFragment)
+            val actionTools = RoomsFragmentDirections.actionNavigationRoomsToReservationsFragment("#D3E1FF","https://i.ibb.co/Qrs97PY/tools.png","Work Shop")
+            view.findNavController().navigate(actionTools)
         }
     }
 

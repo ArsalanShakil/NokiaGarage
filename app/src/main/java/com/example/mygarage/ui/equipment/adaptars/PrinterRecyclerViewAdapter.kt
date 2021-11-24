@@ -3,10 +3,12 @@ package com.example.mygarage.ui.equipment.adaptars
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mygarage.R
 import com.example.mygarage.network.equipments.Printer
+import com.example.mygarage.ui.equipment.EquipmentFragmentDirections
 import com.example.mygarage.ui.equipment.viewholders.PrinterRecyclerViewHolder
 
 
@@ -22,6 +24,8 @@ class PrinterRecyclerViewAdapter(val context: Context, val printers: List<Printe
         holder.printerName.text = printer.name
         Glide.with(context).load(printer.thumbnail).into(holder.printerImage)
         holder.itemView.setOnClickListener{ view ->
+            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#D3E1FF",printer.thumbnail,printer.name)
+            view.findNavController().navigate(action)
         }
     }
 

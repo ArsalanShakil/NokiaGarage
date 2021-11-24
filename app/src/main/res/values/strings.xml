@@ -40,8 +40,8 @@ equipment or room</string>
     <string name="vr_headsets">VR headsets</string>
     <string name="cameras">Cameras</string>
     <string name="others">Others</string>
-    <string name="pick_a_time_and_date">pick a time and date</string>
-    <string name="pick_a_date">pick a date</string>
-    <string name="pick_a_time">pick a time</string>
-    <string name="save_reservation">save reservation</string>
+    <string name="pick_a_time_and_date">Pick a time and date</string>
+    <string name="pick_a_date">Pick a date</string>
+    <string name="pick_a_time">Pick a time</string>
+    <string name="save_reservation">Save reservation</string>
 </resources>

@@ -18,28 +18,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/reservation_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/reservation_img"
-                android:layout_width="69dp"
-                android:layout_height="68dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitCenter"
                 android:layout_marginStart="28dp"
-                android:background="@drawable/signin_img"
+                app:srcCompat="@drawable/signup_img"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/reservation_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="@string/cameras"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/reservation_img"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.221"
                 app:layout_constraintStart_toEndOf="@+id/reservation_img"
                 app:layout_constraintTop_toTopOf="@+id/reservation_img" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -63,10 +66,12 @@
         android:id="@+id/reservation_time_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/title_profile"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -74,14 +79,15 @@
         android:id="@+id/day_pick_btn"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="@string/pick_a_date"
-        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:textAllCaps="false"
         app:backgroundTint="@color/primary_blue"
         app:cornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reservation_time_tv"
         app:rippleColor="@color/nokia_blue"
@@ -107,9 +113,9 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/save_reservation"
-        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:textAllCaps="false"
         app:backgroundTint="@color/primary_blue"
         app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
