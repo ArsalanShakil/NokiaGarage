@@ -91,6 +91,15 @@ class ReservationsFragment : Fragment() {
         return format.format(date)
     }
 
+    private fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat(
+            "HH.mm",
+            Locale.getDefault()
+        )
+        return format.format(date)
+    }
+
     // Time picker
 
     private fun showTimeRangePicker() {
@@ -106,11 +115,11 @@ class ReservationsFragment : Fragment() {
 
         timePicker.show(childFragmentManager, "time_range_picker")
 
-        timePicker.addOnPositiveButtonClickListener { dateSelected ->
-            if (dateSelected != null) {
-            //    binding.tvTimePickBtn.text =
-             //       "Date Selected: ${convertLongToDay(dateSelected)}"
-                Log.d("tagg",dateSelected.toString())
+        timePicker.addOnPositiveButtonClickListener { timeSelected ->
+            if (timeSelected != null) {
+                binding.tvTimePickBtn.text =
+                    "Time Selected: ${convertLongToTime(timePicker.hour.toLong())}"
+                Log.d("tagg",timeSelected.toString())
             }
 
         }
