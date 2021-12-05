@@ -38,8 +38,8 @@ class Repository(private val apiCall : ApiEndpointCalls) {
     }
 
 
-    suspend fun getSignIn() {
-        val signInResponse = apiCall.getSignIn(SignInData("abc@123.com","sometext"))
+    suspend fun getSignIn(username:String,password:String) {
+        val signInResponse = apiCall.getSignIn(SignInData(username,password))
         if (signInResponse?.body() != null) {
             signInLiveData.postValue(signInResponse.body())
         }
