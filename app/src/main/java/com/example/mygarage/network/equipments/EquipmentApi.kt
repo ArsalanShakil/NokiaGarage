@@ -4,6 +4,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface EquipmentApi {
-    @GET("equipment")
+    @GET("equipments")
     suspend fun getEquipment(): Response<EquipmentData>
 }

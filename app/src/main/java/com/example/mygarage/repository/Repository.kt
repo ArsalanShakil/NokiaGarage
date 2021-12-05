@@ -1,20 +1,29 @@
 package com.example.mygarage.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mygarage.network.articles.Articles
 import com.example.mygarage.network.articles.ArticlesApi
 import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.equipments.EquipmentApi
 import com.example.mygarage.network.equipments.EquipmentData
+import com.example.mygarage.network.signin.ApiEndpoint
+import com.example.mygarage.network.signin.SignInData
+import com.example.mygarage.network.signin.SignInResponse
 
 
-class Repository(private val articlesApi : ArticlesApi, private val equipmentApi: EquipmentApi) {
+class Repository(private val articlesApi : ArticlesApi, private val equipmentApi: EquipmentApi, private val signInApi: ApiEndpoint) {
     private val articlesLiveData = MutableLiveData<ArticlesData>()
     val articles : LiveData<ArticlesData>
     get() = articlesLiveData
+
+    private val equipmentLiveData = MutableLiveData<EquipmentData>()
+    val equipment : LiveData<EquipmentData>
+    get() = equipmentLiveData
+
+    private val signInLiveData = MutableLiveData<SignInResponse>()
+    val signIn : LiveData<SignInResponse>
+    get() = signInLiveData
+
 
      suspend fun getArticles() {
         val articleResult = articlesApi.getArticles()
@@ -23,10 +32,6 @@ class Repository(private val articlesApi : ArticlesApi, private val equipmentApi
         }
     }
 
-    private val equipmentLiveData = MutableLiveData<EquipmentData>()
-    val equipment : LiveData<EquipmentData>
-        get() = equipmentLiveData
-
     suspend fun getEquipments() {
         val equipmentResult = equipmentApi.getEquipment()
         if (equipmentResult?.body() != null) {
@@ -34,4 +39,11 @@ class Repository(private val articlesApi : ArticlesApi, private val equipmentApi
         }
     }
 
+
+    suspend fun getSignIn() {
+        val signInResponse = signInApi.getSignIn(SignInData("abc@123.com","sometext"))
+        if (signInResponse?.body() != null) {
+            signInLiveData.postValue(signInResponse.body())
+        }
+    }
 }

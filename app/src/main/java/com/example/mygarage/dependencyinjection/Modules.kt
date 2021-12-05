@@ -3,6 +3,7 @@ package com.example.mygarage.dependencyinjection
 import com.example.mygarage.BuildConfig
 import com.example.mygarage.network.articles.ArticlesApi
 import com.example.mygarage.network.equipments.EquipmentApi
+import com.example.mygarage.network.signin.ApiEndpoint
 import com.example.mygarage.repository.Repository
 import com.example.mygarage.ui.equipment.EquipmentFragment
 import com.example.mygarage.ui.equipment.EquipmentViewModel
@@ -10,6 +11,8 @@ import com.example.mygarage.ui.home.ArticleRecyclerViewAdapter
 import com.example.mygarage.ui.home.HomeFragment
 import com.example.mygarage.ui.home.HomeViewModel
 import com.example.mygarage.ui.reservations.ReservationsViewModel
+import com.example.mygarage.ui.signin.SignInFragment
+import com.example.mygarage.ui.signin.SignInViewModel
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -25,24 +28,28 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-const val BASE_URL = "https://users.metropolia.fi/~arsalans/"
+const val BASE_URL = "https://nokiagarageapi.herokuapp.com/api/"
 
 private val apiModule: Module = module {
     single(createdAtStart = false) { get<Retrofit>().create(ArticlesApi::class.java) }
     single(createdAtStart = false) { get<Retrofit>().create(EquipmentApi::class.java) }
+    single(createdAtStart = false) { get<Retrofit>().create(ApiEndpoint::class.java) }
 
 }
 private val repositoryModule : Module = module {
-    factory { Repository(get(),get()) }
+    factory { Repository(get(),get(),get()) }
 }
 private val viewModelModule: Module = module {
     viewModel { HomeViewModel(get()) }
     viewModel { EquipmentViewModel(get()) }
     viewModel {ReservationsViewModel()}
+    viewModel {SignInViewModel(get())}
+
 }
 private val fragmentModule: Module = module {
     factory { HomeFragment() }
     factory { EquipmentFragment() }
+    factory { SignInFragment() }
 
 }
 
