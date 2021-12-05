@@ -1,13 +1,10 @@
 package com.example.mygarage.dependencyinjection
 
 import com.example.mygarage.BuildConfig
-import com.example.mygarage.network.articles.ArticlesApi
-import com.example.mygarage.network.equipments.EquipmentApi
-import com.example.mygarage.network.signin.ApiEndpoint
+import com.example.mygarage.network.ApiEndpointCalls
 import com.example.mygarage.repository.Repository
 import com.example.mygarage.ui.equipment.EquipmentFragment
 import com.example.mygarage.ui.equipment.EquipmentViewModel
-import com.example.mygarage.ui.home.ArticleRecyclerViewAdapter
 import com.example.mygarage.ui.home.HomeFragment
 import com.example.mygarage.ui.home.HomeViewModel
 import com.example.mygarage.ui.reservations.ReservationsViewModel
@@ -31,13 +28,11 @@ import java.util.concurrent.TimeUnit
 const val BASE_URL = "https://nokiagarageapi.herokuapp.com/api/"
 
 private val apiModule: Module = module {
-    single(createdAtStart = false) { get<Retrofit>().create(ArticlesApi::class.java) }
-    single(createdAtStart = false) { get<Retrofit>().create(EquipmentApi::class.java) }
-    single(createdAtStart = false) { get<Retrofit>().create(ApiEndpoint::class.java) }
+    single(createdAtStart = false) { get<Retrofit>().create(ApiEndpointCalls::class.java) }
 
 }
 private val repositoryModule : Module = module {
-    factory { Repository(get(),get(),get()) }
+    factory { Repository(get()) }
 }
 private val viewModelModule: Module = module {
     viewModel { HomeViewModel(get()) }

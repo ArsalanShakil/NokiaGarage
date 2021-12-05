@@ -2,16 +2,14 @@ package com.example.mygarage.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.mygarage.network.articles.ArticlesApi
+import com.example.mygarage.network.ApiEndpointCalls
 import com.example.mygarage.network.articles.ArticlesData
-import com.example.mygarage.network.equipments.EquipmentApi
 import com.example.mygarage.network.equipments.EquipmentData
-import com.example.mygarage.network.signin.ApiEndpoint
 import com.example.mygarage.network.signin.SignInData
 import com.example.mygarage.network.signin.SignInResponse
 
 
-class Repository(private val articlesApi : ArticlesApi, private val equipmentApi: EquipmentApi, private val signInApi: ApiEndpoint) {
+class Repository(private val apiCall : ApiEndpointCalls) {
     private val articlesLiveData = MutableLiveData<ArticlesData>()
     val articles : LiveData<ArticlesData>
     get() = articlesLiveData
@@ -26,14 +24,14 @@ class Repository(private val articlesApi : ArticlesApi, private val equipmentApi
 
 
      suspend fun getArticles() {
-        val articleResult = articlesApi.getArticles()
+        val articleResult = apiCall.getArticles()
         if (articleResult?.body() != null) {
             articlesLiveData.postValue(articleResult.body())
         }
     }
 
     suspend fun getEquipments() {
-        val equipmentResult = equipmentApi.getEquipment()
+        val equipmentResult = apiCall.getEquipment()
         if (equipmentResult?.body() != null) {
             equipmentLiveData.postValue(equipmentResult.body())
         }
@@ -41,7 +39,7 @@ class Repository(private val articlesApi : ArticlesApi, private val equipmentApi
 
 
     suspend fun getSignIn() {
-        val signInResponse = signInApi.getSignIn(SignInData("abc@123.com","sometext"))
+        val signInResponse = apiCall.getSignIn(SignInData("abc@123.com","sometext"))
         if (signInResponse?.body() != null) {
             signInLiveData.postValue(signInResponse.body())
         }
