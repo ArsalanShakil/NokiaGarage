@@ -47,16 +47,15 @@ class SignInFragment : Fragment() {
         binding.signInBtn.setOnClickListener {
             binding.errorTxt.visibility = View.GONE
             signInViewModel.signInBtnClick()
+            signInViewModel.signIn.observe(viewLifecycleOwner, {
+                if (!signInViewModel.checkResponse(it._id)){
+                    findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
+                } else {
+                    binding.errorTxt.visibility = View.VISIBLE
+                    binding.errorTxt.text = it.message
+                }
+            })
         }
-
-        signInViewModel.signIn.observe(viewLifecycleOwner, {
-            if (!signInViewModel.checkResponse(it._id)){
-                findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
-            } else {
-                binding.errorTxt.visibility = View.VISIBLE
-                binding.errorTxt.text = it.message
-            }
-        })
     }
 
 }
