@@ -14,6 +14,7 @@ class SignInViewModel(private val repository: Repository) : ViewModel() {
     val password = MutableLiveData("")
     val signIn: LiveData<SignInResponse>
         get() = repository.signIn
+
     fun signInBtnClick(){
         viewModelScope.launch(Dispatchers.IO) {
             repository.getSignIn(email.value!!,password.value!!)

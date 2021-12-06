@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
@@ -45,7 +46,25 @@ class SignUpFragment : Fragment() {
         }
         signUpViewModel.signUp.observe(viewLifecycleOwner, {
             Log.d("signUP", it.fullName)
-            findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
+            findNavController().navigate(R.id.action_signUpFragment_to_navigation_home)
         })
+        signUpViewModel.isEnabled.observe(viewLifecycleOwner, {
+            binding.signUpBtn.isEnabled = it
+            setStyle(it)
+        })
+    }
+
+    private fun setStyle(isEnabled: Boolean) {
+        binding.run {
+            if (isEnabled) {
+                signUpBtn.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.primary_blue))
+                errorText.visibility = View.GONE
+
+            } else {
+                signUpBtn.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.list_color5))
+                errorText.text = getString(R.string.please_fill_all_fields)
+            }
+        }
+
     }
 }
