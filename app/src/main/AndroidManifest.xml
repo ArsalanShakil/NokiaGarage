@@ -10,7 +10,7 @@
         android:name=".MainApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyGarage">
+        android:theme="@style/splashScreenTheme">
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"

@@ -15,4 +15,9 @@
         <item name="android:textColor">@color/text_blue</item>
 
     </style>
+    
+    <style name="splashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_image</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
 </resources>
