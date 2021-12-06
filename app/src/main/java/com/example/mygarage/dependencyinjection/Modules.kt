@@ -7,6 +7,8 @@ import com.example.mygarage.ui.equipment.EquipmentFragment
 import com.example.mygarage.ui.equipment.EquipmentViewModel
 import com.example.mygarage.ui.home.HomeFragment
 import com.example.mygarage.ui.home.HomeViewModel
+import com.example.mygarage.ui.profile.ProfileFragment
+import com.example.mygarage.ui.profile.ProfileViewModel
 import com.example.mygarage.ui.reservations.ReservationsViewModel
 import com.example.mygarage.ui.signin.SignInFragment
 import com.example.mygarage.ui.signin.SignInViewModel
@@ -22,6 +24,7 @@ import org.koin.core.module.Module
 import org.koin.core.scope.Scope
 import org.koin.dsl.module
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.core.scope.get
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -42,6 +45,7 @@ private val viewModelModule: Module = module {
     viewModel {ReservationsViewModel()}
     viewModel {SignInViewModel(get())}
     viewModel { SignUpViewModel(get()) }
+    viewModel { ProfileViewModel(get()) }
 
 }
 private val fragmentModule: Module = module {
@@ -49,6 +53,7 @@ private val fragmentModule: Module = module {
     factory { EquipmentFragment() }
     factory { SignInFragment() }
     factory { SignUpFragment() }
+    factory { ProfileFragment() }
 
 }
 

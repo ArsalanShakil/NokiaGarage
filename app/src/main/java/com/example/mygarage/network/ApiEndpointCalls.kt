@@ -4,6 +4,7 @@ import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.bookings.BookingData
 import com.example.mygarage.network.bookings.BookingResponse
 import com.example.mygarage.network.equipments.EquipmentData
+import com.example.mygarage.network.profile.ProfileResponse
 import com.example.mygarage.network.signin.SignInData
 import com.example.mygarage.network.signin.SignInResponse
 import com.example.mygarage.network.signup.SignUpData
@@ -31,5 +32,11 @@ interface ApiEndpointCalls {
     suspend fun getBooking(
         @Path("ownerId") id : String
     ): Response<BookingResponse>
+    //61a8da3dfcd193094cc902f6
+
+    @GET("users/{userId}")
+    suspend fun getProfile(
+        @Path("userId") id : String
+    ): Response<ProfileResponse>
     //61a8da3dfcd193094cc902f6
 }
