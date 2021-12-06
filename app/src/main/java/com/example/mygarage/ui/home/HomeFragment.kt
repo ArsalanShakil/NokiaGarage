@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygarage.databinding.FragmentHomeBinding
 import com.example.mygarage.ui.home.adapters.ArticleRecyclerViewAdapter
+import com.example.mygarage.ui.home.adapters.BookingRecyclerViewAdapter
 import com.example.mygarage.ui.signin.SignInViewModel
 import com.example.mygarage.ui.signup.SignUpViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -23,7 +24,8 @@ class HomeFragment : Fragment() {
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
 
     private var _binding: FragmentHomeBinding? = null
-    lateinit var adapter: ArticleRecyclerViewAdapter
+    lateinit var articleAdapter: ArticleRecyclerViewAdapter
+    lateinit var bookingAdapter: BookingRecyclerViewAdapter
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -45,8 +47,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         homeViewModel.articleList.observe(viewLifecycleOwner, {
-            adapter = ArticleRecyclerViewAdapter(requireContext(), it)
-            articlesRecyclerview.adapter = adapter
+            articleAdapter = ArticleRecyclerViewAdapter(requireContext(), it)
+            articlesRecyclerview.adapter = articleAdapter
             articlesRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         })
 
@@ -61,6 +63,12 @@ class HomeFragment : Fragment() {
         }
         homeViewModel.bookingList.observe(viewLifecycleOwner, {
             Log.d("BOOKINGDATA", it[0].name)
+
+            bookingAdapter = BookingRecyclerViewAdapter(requireContext(), it)
+            bookingsRecyclerview.adapter = bookingAdapter
+            bookingsRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+
         })
     }
 
