@@ -10,6 +10,8 @@ import com.example.mygarage.ui.home.HomeViewModel
 import com.example.mygarage.ui.reservations.ReservationsViewModel
 import com.example.mygarage.ui.signin.SignInFragment
 import com.example.mygarage.ui.signin.SignInViewModel
+import com.example.mygarage.ui.signup.SignUpFragment
+import com.example.mygarage.ui.signup.SignUpViewModel
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -39,12 +41,14 @@ private val viewModelModule: Module = module {
     viewModel { EquipmentViewModel(get()) }
     viewModel {ReservationsViewModel()}
     viewModel {SignInViewModel(get())}
+    viewModel { SignUpViewModel(get()) }
 
 }
 private val fragmentModule: Module = module {
     factory { HomeFragment() }
     factory { EquipmentFragment() }
     factory { SignInFragment() }
+    factory { SignUpFragment() }
 
 }
 

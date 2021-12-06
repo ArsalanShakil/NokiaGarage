@@ -45,8 +45,7 @@ class SignInFragment : Fragment() {
         }
         binding.signInBtn.setOnClickListener {
             binding.errorTxt.visibility = View.GONE
-            signInViewModel.apiCallBtnClick()
-           // findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
+            signInViewModel.signInBtnClick()
         }
 
         signInViewModel.signIn.observe(viewLifecycleOwner, {

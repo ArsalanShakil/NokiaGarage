@@ -7,6 +7,8 @@ import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.equipments.EquipmentData
 import com.example.mygarage.network.signin.SignInData
 import com.example.mygarage.network.signin.SignInResponse
+import com.example.mygarage.network.signup.SignUpData
+import com.example.mygarage.network.signup.SignUpResponse
 
 
 class Repository(private val apiCall : ApiEndpointCalls) {
@@ -21,6 +23,10 @@ class Repository(private val apiCall : ApiEndpointCalls) {
     private val signInLiveData = MutableLiveData<SignInResponse>()
     val signIn : LiveData<SignInResponse>
     get() = signInLiveData
+
+    private val signUpLiveData = MutableLiveData<SignUpResponse>()
+    val signUp : LiveData<SignUpResponse>
+        get() = signUpLiveData
 
 
      suspend fun getArticles() {
@@ -38,10 +44,17 @@ class Repository(private val apiCall : ApiEndpointCalls) {
     }
 
 
-    suspend fun getSignIn(username:String,password:String) {
-        val signInResponse = apiCall.getSignIn(SignInData(username,password))
+    suspend fun getSignIn(email:String,password:String) {
+        val signInResponse = apiCall.getSignIn(SignInData(email,password))
         if (signInResponse?.body() != null) {
             signInLiveData.postValue(signInResponse.body())
+        }
+    }
+
+    suspend fun getSignUp(email:String,fullName:String,password:String) {
+        val signUpResponse = apiCall.getSignUp(SignUpData(email,fullName,password))
+        if (signUpResponse?.body() != null) {
+            signUpLiveData.postValue(signUpResponse.body())
         }
     }
 }

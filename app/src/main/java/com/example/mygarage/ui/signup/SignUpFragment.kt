@@ -1,37 +1,36 @@
 package com.example.mygarage.ui.signup
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
-import com.example.mygarage.databinding.FragmentSignInBinding
 import com.example.mygarage.databinding.FragmentSignUpBinding
-import com.example.mygarage.ui.signin.SignInViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignUpFragment : Fragment() {
 
-    private lateinit var signUpViewModel: SignUpViewModel
-    private var _binding: FragmentSignUpBinding? = null
+    private val signUpViewModel by viewModel<SignUpViewModel>()
+    private lateinit var binding: FragmentSignUpBinding
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        signUpViewModel =
-            ViewModelProvider(this).get(SignUpViewModel::class.java)
-
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_sign_up, container, false
+        )
+        binding.viewModel = signUpViewModel
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,9 +40,12 @@ class SignUpFragment : Fragment() {
                 R.id.action_signUpFragment_to_signInFragment
             )
         }
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        binding.signUpBtn.setOnClickListener {
+            signUpViewModel.signUpBtnClick()
+        }
+        signUpViewModel.signUp.observe(viewLifecycleOwner, {
+            Log.d("signUP", it.fullName)
+            findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
+        })
     }
 }

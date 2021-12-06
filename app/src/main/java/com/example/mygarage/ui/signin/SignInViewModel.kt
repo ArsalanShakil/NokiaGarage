@@ -9,12 +9,12 @@ import com.example.mygarage.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SignInViewModel(val repository: Repository) : ViewModel() {
+class SignInViewModel(private val repository: Repository) : ViewModel() {
     val email = MutableLiveData("")
     val password = MutableLiveData("")
     val signIn: LiveData<SignInResponse>
         get() = repository.signIn
-    fun apiCallBtnClick(){
+    fun signInBtnClick(){
         viewModelScope.launch(Dispatchers.IO) {
             repository.getSignIn(email.value!!,password.value!!)
         }
