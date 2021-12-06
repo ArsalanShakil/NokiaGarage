@@ -60,9 +60,9 @@ class HomeFragment : Fragment() {
         }
         signUpViewModel.signUp.observeForever {
             Log.d("BOOKINGID-SIGNUP", it._id)
+            homeViewModel.getUserBookings(it._id)
         }
         homeViewModel.bookingList.observe(viewLifecycleOwner, {
-            Log.d("BOOKINGDATA", it[0].name)
 
             bookingAdapter = BookingRecyclerViewAdapter(requireContext(), it)
             bookingsRecyclerview.adapter = bookingAdapter
