@@ -12,6 +12,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiEndpointCalls {
     @GET("articles")
@@ -26,6 +27,9 @@ interface ApiEndpointCalls {
     @POST("users")
     suspend fun getSignUp(@Body params : SignUpData): Response<SignUpResponse>
 
-    @GET("bookings/users/61a8da3dfcd193094cc902f6")
-    suspend fun getBooking(): Response<BookingResponse>
+    @GET("bookings/users/{ownerId}")
+    suspend fun getBooking(
+        @Path("ownerId") id : String
+    ): Response<BookingResponse>
+    //61a8da3dfcd193094cc902f6
 }

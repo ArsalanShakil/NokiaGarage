@@ -8,13 +8,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygarage.databinding.FragmentHomeBinding
+import com.example.mygarage.ui.home.adapters.ArticleRecyclerViewAdapter
+import com.example.mygarage.ui.signin.SignInViewModel
+import com.example.mygarage.ui.signup.SignUpViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
 
     private val homeViewModel by viewModel<HomeViewModel>()
+    private val signInViewModel: SignInViewModel by sharedViewModel()
+    private val signUpViewModel: SignUpViewModel by sharedViewModel()
 
     private var _binding: FragmentHomeBinding? = null
     lateinit var adapter: ArticleRecyclerViewAdapter
@@ -44,10 +50,18 @@ class HomeFragment : Fragment() {
             articlesRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         })
 
+
+        signInViewModel.signIn.observeForever {
+            Log.d("BOOKINGID-SIGNIN", it.toString())
+            //homeViewModel.id.postValue(it._id)
+            homeViewModel.getUserBookings(it._id)
+        }
+        signUpViewModel.signUp.observeForever {
+            Log.d("BOOKINGID-SIGNUP", it._id)
+        }
         homeViewModel.bookingList.observe(viewLifecycleOwner, {
             Log.d("BOOKINGDATA", it[0].name)
         })
-
     }
 
 

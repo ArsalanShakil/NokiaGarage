@@ -1,4 +1,4 @@
-package com.example.mygarage.ui.home
+package com.example.mygarage.ui.home.adapters
 
 import android.content.Context
 import android.graphics.Color
@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mygarage.R
 import com.example.mygarage.network.articles.ArticlesDataItem
+import com.example.mygarage.ui.home.HomeFragmentDirections
+import com.example.mygarage.ui.home.viewholders.ArticleRecyclerViewHolder
 
 
 class ArticleRecyclerViewAdapter(val context: Context, val articles: List<ArticlesDataItem>) : RecyclerView.Adapter<ArticleRecyclerViewHolder>() {

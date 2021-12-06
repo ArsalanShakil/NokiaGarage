@@ -67,8 +67,8 @@ class Repository(private val apiCall : ApiEndpointCalls) {
         }
     }
 
-    suspend fun getBooking() {
-        val bookingResponse = apiCall.getBooking()
+    suspend fun getBooking(id : String) {
+        val bookingResponse = apiCall.getBooking(id)
         if (bookingResponse?.body() != null) {
             bookingsLiveData.postValue(bookingResponse.body())
         }

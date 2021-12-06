@@ -1,4 +1,4 @@
-package com.example.mygarage.ui.home
+package com.example.mygarage.ui.home.viewholders
 
 import android.view.View
 import android.widget.ImageView

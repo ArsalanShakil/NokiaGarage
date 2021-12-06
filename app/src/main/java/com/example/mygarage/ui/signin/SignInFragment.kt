@@ -10,12 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentSignInBinding
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignInFragment : Fragment() {
 
 
-    private val signInViewModel by viewModel<SignInViewModel>()
+    private val signInViewModel: SignInViewModel by sharedViewModel()
 
     private lateinit var binding: FragmentSignInBinding
 

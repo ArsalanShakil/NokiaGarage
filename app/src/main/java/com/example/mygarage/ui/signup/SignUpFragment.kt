@@ -11,11 +11,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentSignUpBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignUpFragment : Fragment() {
 
-    private val signUpViewModel by viewModel<SignUpViewModel>()
+    private val signUpViewModel: SignUpViewModel by sharedViewModel()
     private lateinit var binding: FragmentSignUpBinding
 
     // This property is only valid between onCreateView and

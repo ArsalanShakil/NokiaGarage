@@ -10,8 +10,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SignInViewModel(private val repository: Repository) : ViewModel() {
-    val email = MutableLiveData("")
-    val password = MutableLiveData("")
+    val email = MutableLiveData("abc@123.com")
+    val password = MutableLiveData("sometext")
     val signIn: LiveData<SignInResponse>
         get() = repository.signIn
 
