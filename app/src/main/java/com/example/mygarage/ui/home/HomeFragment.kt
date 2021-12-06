@@ -44,6 +44,9 @@ class HomeFragment : Fragment() {
             articlesRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         })
 
+        homeViewModel.bookingList.observe(viewLifecycleOwner, {
+            Log.d("BOOKINGDATA", it[0].name)
+        })
 
     }
 

@@ -1,6 +1,8 @@
 package com.example.mygarage.network
 
 import com.example.mygarage.network.articles.ArticlesData
+import com.example.mygarage.network.bookings.BookingData
+import com.example.mygarage.network.bookings.BookingResponse
 import com.example.mygarage.network.equipments.EquipmentData
 import com.example.mygarage.network.signin.SignInData
 import com.example.mygarage.network.signin.SignInResponse
@@ -24,4 +26,6 @@ interface ApiEndpointCalls {
     @POST("users")
     suspend fun getSignUp(@Body params : SignUpData): Response<SignUpResponse>
 
+    @GET("bookings/users/61a8da3dfcd193094cc902f6")
+    suspend fun getBooking(): Response<BookingResponse>
 }
