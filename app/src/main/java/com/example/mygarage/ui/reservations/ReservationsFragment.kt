@@ -25,6 +25,8 @@ class ReservationsFragment : Fragment() {
     private val signInViewModel: SignInViewModel by sharedViewModel()
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
     private var setId = ""
+    private var setStartDate = ""
+    private var setEndDate = ""
     val args : ReservationsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -52,9 +54,11 @@ class ReservationsFragment : Fragment() {
         }
         reservationsViewModel.startDateString.observe(viewLifecycleOwner,{
             pickStartDateBtn.text = it
+            setStartDate = it
         })
         reservationsViewModel.endDateString.observe(viewLifecycleOwner,{
             pickEndDateBtn.text = it
+            setEndDate = it
         })
 
         signInViewModel.signIn.observeForever {
@@ -65,7 +69,7 @@ class ReservationsFragment : Fragment() {
         }
         reservation_btn.setOnClickListener {
             Log.d("setID", setId)
-            reservationsViewModel.postBooking("2021-01-22T11:12:00.000Z","2021-01-23T11:30:00.000Z",reservationName,setId,reservationImg)
+            reservationsViewModel.postBooking(setStartDate,setEndDate,reservationName,setId,reservationImg)
 
             reservationsViewModel.sendBooking.observe(viewLifecycleOwner,{
                 Log.d("POST RESPONSE", it.toString())

@@ -31,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-const val BASE_URL = "https://nokiagarageapi.herokuapp.com/api/"
+const val BASE_URL = "https://nokiagarage.herokuapp.com/api/"
 
 private val apiModule: Module = module {
     single(createdAtStart = false) { get<Retrofit>().create(ApiEndpointCalls::class.java) }
