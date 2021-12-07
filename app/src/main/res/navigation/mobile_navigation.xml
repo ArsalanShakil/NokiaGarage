@@ -82,6 +82,9 @@
             app:argType="string" />
         <argument android:name="name"
             app:argType="string" />
+        <action
+            android:id="@+id/action_reservationsFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"

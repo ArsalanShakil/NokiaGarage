@@ -39,4 +39,8 @@ class ReservationsViewModel(val repository: Repository) : ViewModel() {
         date.set(Calendar.SECOND, 0)
         dateString.value = dateFormatter.format(date.time)
     }
+
+    fun checkResponse(message:String?):Boolean {
+        return message.isNullOrEmpty()
+    }
 }

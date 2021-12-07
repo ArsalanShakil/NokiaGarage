@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.mygarage.R
@@ -63,11 +65,20 @@ class ReservationsFragment : Fragment() {
         }
         reservation_btn.setOnClickListener {
             Log.d("setID", setId)
-            reservationsViewModel.postBooking("2021-01-15T11:12:00.000Z","2021-01-16T11:30:00.000Z",reservationName,setId,reservationImg)
+            reservationsViewModel.postBooking("2021-01-22T11:12:00.000Z","2021-01-23T11:30:00.000Z",reservationName,setId,reservationImg)
+
+            reservationsViewModel.sendBooking.observe(viewLifecycleOwner,{
+                Log.d("POST RESPONSE", it.toString())
+
+                if (!reservationsViewModel.checkResponse(it.message)){
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                } else {
+                    findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
+
+                }
+            })
         }
-        reservationsViewModel.sendBooking.observe(viewLifecycleOwner,{
-            Log.d("POST RESPONSE", it.toString())
-        })
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
