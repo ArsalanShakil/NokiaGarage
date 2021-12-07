@@ -3,6 +3,7 @@ package com.example.mygarage.network
 import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.bookings.BookingData
 import com.example.mygarage.network.bookings.BookingResponse
+import com.example.mygarage.network.bookings.BookingResponseItem
 import com.example.mygarage.network.equipments.EquipmentData
 import com.example.mygarage.network.profile.ProfileResponse
 import com.example.mygarage.network.signin.SignInData
@@ -38,5 +39,9 @@ interface ApiEndpointCalls {
     suspend fun getProfile(
         @Path("userId") id : String
     ): Response<ProfileResponse>
-    //61a8da3dfcd193094cc902f6
+
+    @POST("bookings")
+    suspend fun sendBooking(@Body params : BookingData): Response<BookingResponseItem>
+
+
 }

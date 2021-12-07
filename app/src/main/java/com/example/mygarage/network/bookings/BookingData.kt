@@ -1,3 +1,9 @@
 package com.example.mygarage.network.bookings
 
-class BookingData : ArrayList<BookingDataItem>()
+data class BookingData(
+    val dateTimeFrom: String,
+    val dateTimeTo: String,
+    val name: String,
+    val ownerUserId: String,
+    val url: String
+)

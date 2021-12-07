@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.mygarage.network.ApiEndpointCalls
 import com.example.mygarage.network.articles.ArticlesData
+import com.example.mygarage.network.bookings.BookingData
 import com.example.mygarage.network.bookings.BookingResponse
+import com.example.mygarage.network.bookings.BookingResponseItem
 import com.example.mygarage.network.equipments.EquipmentData
 import com.example.mygarage.network.profile.ProfileResponse
 import com.example.mygarage.network.signin.SignInData
@@ -40,7 +42,9 @@ class Repository(private val apiCall : ApiEndpointCalls) {
     val profile : LiveData<ProfileResponse>
         get() = profileLiveData
 
-
+    private val sendBookingLiveData = MutableLiveData<BookingResponseItem>()
+    val sendBooking : LiveData<BookingResponseItem>
+        get() = sendBookingLiveData
 
 
      suspend fun getArticles() {
@@ -83,6 +87,14 @@ class Repository(private val apiCall : ApiEndpointCalls) {
         val profileResponse = apiCall.getProfile(id)
         if (profileResponse?.body() != null) {
             profileLiveData.postValue(profileResponse.body())
+        }
+    }
+
+
+    suspend fun sendBooking(dateTimeFrom: String,dateTimeTo: String,name: String,ownerUserId: String,url: String) {
+        val bookingResponse = apiCall.sendBooking(BookingData(dateTimeFrom,dateTimeTo,name,ownerUserId,url))
+        if (bookingResponse?.body() != null) {
+            sendBookingLiveData.postValue(bookingResponse.body())
         }
     }
 }

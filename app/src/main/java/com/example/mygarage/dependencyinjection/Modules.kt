@@ -9,6 +9,7 @@ import com.example.mygarage.ui.home.HomeFragment
 import com.example.mygarage.ui.home.HomeViewModel
 import com.example.mygarage.ui.profile.ProfileFragment
 import com.example.mygarage.ui.profile.ProfileViewModel
+import com.example.mygarage.ui.reservations.ReservationsFragment
 import com.example.mygarage.ui.reservations.ReservationsViewModel
 import com.example.mygarage.ui.signin.SignInFragment
 import com.example.mygarage.ui.signin.SignInViewModel
@@ -42,7 +43,7 @@ private val repositoryModule : Module = module {
 private val viewModelModule: Module = module {
     viewModel { HomeViewModel(get()) }
     viewModel { EquipmentViewModel(get()) }
-    viewModel {ReservationsViewModel()}
+    viewModel {ReservationsViewModel(get())}
     viewModel {SignInViewModel(get())}
     viewModel { SignUpViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
@@ -54,6 +55,7 @@ private val fragmentModule: Module = module {
     factory { SignInFragment() }
     factory { SignUpFragment() }
     factory { ProfileFragment() }
+    factory { ReservationsFragment() }
 
 }
 

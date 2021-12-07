@@ -7,5 +7,6 @@ data class BookingResponseItem(
     val dateTimeTo: String,
     val name: String,
     val ownerUserId: String,
-    val url: String
+    val url: String,
+    val message: String?
 )
