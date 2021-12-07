@@ -52,78 +52,109 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/pick_a_time_and_date"
+        android:layout_marginTop="32dp"
+        android:text="Pick a start date and time"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reservation_card" />
 
     <TextView
-        android:id="@+id/reservation_time_tv"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/title_profile"
-        android:textSize="24sp"
+        android:layout_marginTop="32dp"
+        android:text="Pick a end date and time"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickStartDateBtn" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/day_pick_btn"
-        android:layout_width="140dp"
+        android:id="@+id/pickStartDateBtn"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="@string/pick_a_date"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:layout_marginTop="32dp"
+        android:text="@string/date"
         android:textAllCaps="false"
-        app:backgroundTint="@color/primary_blue"
-        app:cornerRadius="24dp"
+        android:textColor="@color/text_blue"
+        android:textSize="16sp"
+        app:backgroundTint="@color/list_color3"
+        app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reservation_time_tv"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:rippleColor="@color/nokia_blue"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
-    <Button
-        android:id="@+id/time_pick_btn"
-        android:layout_width="140dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pickEndDateBtn"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:text="@string/pick_a_time"
+        android:layout_marginTop="24dp"
+        android:text="@string/date"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/text_blue"
         android:textSize="16sp"
-        app:backgroundTint="@color/primary_blue"
-        app:cornerRadius="24dp"
+        app:backgroundTint="@color/list_color3"
+        app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:rippleColor="@color/nokia_blue"
-        app:layout_constraintTop_toBottomOf="@+id/day_pick_btn" />
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/reservation_btn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
         android:text="@string/save_reservation"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:textAllCaps="false"
         app:backgroundTint="@color/primary_blue"
         app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/time_pick_btn"
-        app:layout_constraintStart_toStartOf="@+id/time_pick_btn"
-        app:layout_constraintTop_toBottomOf="@+id/time_pick_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="@color/nokia_blue"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="45dp"
+        android:src="@drawable/ic_clock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/ic_clock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="381dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

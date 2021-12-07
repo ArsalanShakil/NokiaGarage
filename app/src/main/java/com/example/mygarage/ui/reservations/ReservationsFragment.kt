@@ -12,11 +12,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.mygarage.R
-import com.example.mygarage.ui.reservations.datetime.DatePickerFragment
-import com.example.mygarage.ui.reservations.datetime.TimePickerFragment
+import com.example.mygarage.ui.reservations.datetime.enddate.EndDatePickerFragment
+import com.example.mygarage.ui.reservations.datetime.startdate.DatePickerFragment
 import com.example.mygarage.ui.signin.SignInViewModel
 import com.example.mygarage.ui.signup.SignUpViewModel
-import kotlinx.android.synthetic.main.fragment_article_details.*
 import kotlinx.android.synthetic.main.fragment_reservations.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -45,17 +44,18 @@ class ReservationsFragment : Fragment() {
         reservation_layout.setBackgroundColor(Color.parseColor(reservatioColor))
         Glide.with(requireContext()).load(reservationImg).into(reservation_img)
         reservation_tv.text = reservationName
-        day_pick_btn.setOnClickListener {
+        pickStartDateBtn.setOnClickListener {
             showDatePickerDialog()
         }
-        time_pick_btn.setOnClickListener {
-            showTimePickerDialog()
+        pickEndDateBtn.setOnClickListener {
+            showEndDatePickerDialog()
         }
-
-        reservationsViewModel.dateString.observe(viewLifecycleOwner,{
-            reservation_time_tv.text = it
+        reservationsViewModel.startDateString.observe(viewLifecycleOwner,{
+            pickStartDateBtn.text = it
         })
-
+        reservationsViewModel.endDateString.observe(viewLifecycleOwner,{
+            pickEndDateBtn.text = it
+        })
 
         signInViewModel.signIn.observeForever {
             setId = it._id
@@ -90,9 +90,9 @@ class ReservationsFragment : Fragment() {
         val newFragment = DatePickerFragment()
         newFragment.show(requireActivity().supportFragmentManager, "datePicker")
     }
-
-    private fun showTimePickerDialog() {
-        val newFragment = TimePickerFragment()
-        newFragment.show(requireActivity().supportFragmentManager, "datePicker")
+    private fun showEndDatePickerDialog() {
+        val newFragment = EndDatePickerFragment()
+        newFragment.show(requireActivity().supportFragmentManager, "enddatePicker")
     }
+
 }

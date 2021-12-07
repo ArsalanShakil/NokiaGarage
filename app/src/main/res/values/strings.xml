@@ -47,4 +47,6 @@ equipment or room</string>
     <string name="error">error</string>
     <string name="please_fill_all_fields">Please fill all fields and make sure you have a valid email</string>
     <string name="your_reservations">Your reservations</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
 </resources>

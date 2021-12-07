@@ -23,21 +23,37 @@ class ReservationsViewModel(val repository: Repository) : ViewModel() {
         }
     }
     private val date = Calendar.getInstance()
-    var dateString = MutableLiveData("")
+    var startDateString = MutableLiveData("Start date and time")
+    var endDateString = MutableLiveData("End date and time")
+
     private val dateFormatter = SimpleDateFormat("dd LLLL yyyy, HH:mm", Locale.getDefault())
 
     fun selectDate(day: Int, month: Int, year: Int) {
         date.set(Calendar.DAY_OF_MONTH, day)
         date.set(Calendar.MONTH, month)
         date.set(Calendar.YEAR, year)
-        dateString.value = dateFormatter.format(date.time)
+        startDateString.value = dateFormatter.format(date.time)
     }
 
     fun selectHourMinute(hour: Int, minute: Int) {
         date.set(Calendar.HOUR_OF_DAY, hour)
         date.set(Calendar.MINUTE, minute)
         date.set(Calendar.SECOND, 0)
-        dateString.value = dateFormatter.format(date.time)
+        startDateString.value = dateFormatter.format(date.time)
+    }
+
+    fun selectEndDate(day: Int, month: Int, year: Int) {
+        date.set(Calendar.DAY_OF_MONTH, day)
+        date.set(Calendar.MONTH, month)
+        date.set(Calendar.YEAR, year)
+        endDateString.value = dateFormatter.format(date.time)
+    }
+
+    fun selectEndHourMinute(hour: Int, minute: Int) {
+        date.set(Calendar.HOUR_OF_DAY, hour)
+        date.set(Calendar.MINUTE, minute)
+        date.set(Calendar.SECOND, 0)
+        endDateString.value = dateFormatter.format(date.time)
     }
 
     fun checkResponse(message:String?):Boolean {

@@ -1,16 +1,16 @@
-package com.example.mygarage.ui.reservations.datetime
+package com.example.mygarage.ui.reservations.datetime.enddate
 
 import android.app.Dialog
-import androidx.fragment.app.DialogFragment
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.widget.TimePicker
+import androidx.fragment.app.DialogFragment
 import com.example.mygarage.ui.reservations.ReservationsViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
-class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
+class EndTimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
     private val viewModel: ReservationsViewModel by sharedViewModel()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -27,7 +27,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int){
         // Do something with the time chosen by the user
-        viewModel.selectHourMinute(hourOfDay,minute)
+        viewModel.selectEndHourMinute(hourOfDay,minute)
 
     }
 
