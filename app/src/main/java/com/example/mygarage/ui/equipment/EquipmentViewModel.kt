@@ -15,7 +15,6 @@ class EquipmentViewModel(val repository: Repository) : ViewModel() {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            delay(3000)
             repository.getEquipments()
         }
     }
