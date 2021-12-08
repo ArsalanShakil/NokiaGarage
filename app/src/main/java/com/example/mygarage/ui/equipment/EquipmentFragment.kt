@@ -43,7 +43,15 @@ class EquipmentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.equipmentShimmerLayout.visibility = View.VISIBLE
+        binding.equipmentConstraintLayout.visibility = View.GONE
         equipmentViewModel.equipmentList.observe(viewLifecycleOwner, {
+
+            binding.equipmentShimmerLayout.apply {
+                hideShimmer()
+                visibility = View.GONE
+            }
+            binding.equipmentConstraintLayout.visibility = View.VISIBLE
             printerAdapter = PrinterRecyclerViewAdapter(requireContext(), it.printers)
             printersRecyclerview.adapter = printerAdapter
             printersRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)

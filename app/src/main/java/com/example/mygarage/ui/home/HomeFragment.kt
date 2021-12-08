@@ -46,6 +46,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.articleShimmerLayout.startShimmer()
+        binding.bookingShimmerLayout.startShimmer()
 
         homeViewModel.articleList.observe(viewLifecycleOwner, {
             binding.articleShimmerLayout.apply {
@@ -68,7 +69,10 @@ class HomeFragment : Fragment() {
             homeViewModel.getUserBookings(it._id)
         }
         homeViewModel.bookingList.observe(viewLifecycleOwner, {
-
+            binding.bookingShimmerLayout.apply {
+                hideShimmer()
+                visibility = View.GONE
+            }
             bookingAdapter = BookingRecyclerViewAdapter(requireContext(), it)
             bookingsRecyclerview.adapter = bookingAdapter
             bookingsRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

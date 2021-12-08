@@ -72,7 +72,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/articlesTxt" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/bookingShimmerLayout"
+        android:layout_width="0dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationsTxt"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="gone">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/booking_loader_shimmer" />
+
+        <include layout="@layout/booking_loader_shimmer" />
+
+        <include layout="@layout/booking_loader_shimmer" />
+
+        <include layout="@layout/booking_loader_shimmer" />
+
+        <include layout="@layout/booking_loader_shimmer" />
+
+    </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bookingsRecyclerview"
         android:layout_width="wrap_content"
