@@ -8,12 +8,14 @@ import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.equipments.EquipmentData
 import com.example.mygarage.repository.Repository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class EquipmentViewModel(val repository: Repository) : ViewModel() {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
+            delay(3000)
             repository.getEquipments()
         }
     }
