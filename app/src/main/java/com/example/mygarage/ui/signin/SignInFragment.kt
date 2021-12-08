@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentSignInBinding
+import com.example.mygarage.ui.utils.LoadingDialog
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -39,16 +40,19 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val loading = LoadingDialog(requireActivity())
         binding.signupTxt.setOnClickListener {
             findNavController().navigate(
                 R.id.action_signInFragment_to_signUpFragment
             )
         }
         binding.signInBtn.setOnClickListener {
+            loading.startLoading()
             binding.errorTxt.visibility = View.GONE
             signInViewModel.signInBtnClick()
             signInViewModel.signIn.observe(viewLifecycleOwner, {
                 if (!signInViewModel.checkResponse(it._id)){
+                    loading.isDismiss()
                     findNavController().navigate(R.id.action_signInFragment_to_navigation_home)
                 } else {
                     binding.errorTxt.visibility = View.VISIBLE

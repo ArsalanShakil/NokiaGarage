@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentSignUpBinding
+import com.example.mygarage.ui.utils.LoadingDialog
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignUpFragment : Fragment() {
@@ -36,18 +37,23 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val loading = LoadingDialog(requireActivity())
         binding.goBackTxt.setOnClickListener {
             findNavController().navigate(
                 R.id.action_signUpFragment_to_signInFragment
             )
         }
         binding.signUpBtn.setOnClickListener {
+            loading.startLoading()
+
             signUpViewModel.signUpBtnClick()
+            signUpViewModel.signUp.observe(viewLifecycleOwner, {
+                loading.isDismiss()
+                Log.d("signUP", it.fullName)
+                findNavController().navigate(R.id.action_signUpFragment_to_navigation_home)
+            })
         }
-        signUpViewModel.signUp.observe(viewLifecycleOwner, {
-            Log.d("signUP", it.fullName)
-            findNavController().navigate(R.id.action_signUpFragment_to_navigation_home)
-        })
+
         signUpViewModel.isEnabled.observe(viewLifecycleOwner, {
             binding.signUpBtn.isEnabled = it
             setStyle(it)

@@ -61,6 +61,7 @@
         <entry key="app/src/main/res/layout/fragment_second_onboarding_screen.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.19899593763222587" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.19042175210046097" />
+        <entry key="app/src/main/res/layout/loading_item.xml" value="0.41960958687227645" />
         <entry key="app/src/main/res/layout/onboarding_fragment.xml" value="0.12395833333333334" />
         <entry key="app/src/main/res/layout/other_recycler_item.xml" value="0.12259371833839919" />
         <entry key="app/src/main/res/layout/printer_recycler_item.xml" value="0.13179347826086957" />
