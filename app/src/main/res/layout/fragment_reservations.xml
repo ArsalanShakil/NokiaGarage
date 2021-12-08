@@ -78,7 +78,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/pickStartDateBtn"
-        android:layout_width="304dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:text="@string/date"
@@ -96,7 +96,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/pickEndDateBtn"
-        android:layout_width="304dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:text="@string/date"
