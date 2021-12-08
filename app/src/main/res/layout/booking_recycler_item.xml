@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     android:layout_gravity="center_horizontal"
-    android:layout_width="380dp"
-    android:layout_height="188dp"
+    android:layout_width="340dp"
+    android:layout_height="160dp"
     android:layout_margin="8dp"
     app:cardCornerRadius="24dp"
     app:cardBackgroundColor="@color/booking_card_color"
@@ -60,10 +60,10 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.73"
+            app:layout_constraintHorizontal_bias="0.84"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.455" />
+            app:layout_constraintVertical_bias="0.55" />
 
         <TextView
             android:id="@+id/bookingFromTxt2"
@@ -78,7 +78,7 @@
             app:layout_constraintHorizontal_bias="0.42"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.343" />
+            app:layout_constraintVertical_bias="0.39" />
 
         <TextView
             android:id="@+id/bookingFromTxt3"
@@ -93,7 +93,7 @@
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.627" />
+            app:layout_constraintVertical_bias="0.72" />
 
         <TextView
             android:id="@+id/bookingToTxt"
@@ -104,10 +104,10 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.73"
+            app:layout_constraintHorizontal_bias="0.84"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.739" />
+            app:layout_constraintVertical_bias="0.87" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
