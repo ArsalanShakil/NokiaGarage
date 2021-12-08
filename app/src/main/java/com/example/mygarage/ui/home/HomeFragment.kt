@@ -45,8 +45,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.articleShimmerLayout.startShimmer()
 
         homeViewModel.articleList.observe(viewLifecycleOwner, {
+            binding.articleShimmerLayout.apply {
+                hideShimmer()
+                visibility = View.GONE
+            }
             articleAdapter = ArticleRecyclerViewAdapter(requireContext(), it)
             articlesRecyclerview.adapter = articleAdapter
             articlesRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)

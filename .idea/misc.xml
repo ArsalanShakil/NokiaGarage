@@ -43,6 +43,7 @@
         <entry key="app/src/main/res/drawable/ic_nokia_logo.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/splash_image.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2657276698264891" />
+        <entry key="app/src/main/res/layout/article_loader_shimmer.xml" value="0.4053219839564999" />
         <entry key="app/src/main/res/layout/articles_recycler_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/booking_recycler_item.xml" value="0.3405876966747895" />
         <entry key="app/src/main/res/layout/calendar_fragment.xml" value="0.2418478260869565" />
