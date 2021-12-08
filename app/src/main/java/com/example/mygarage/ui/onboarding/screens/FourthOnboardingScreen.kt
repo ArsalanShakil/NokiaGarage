@@ -1,5 +1,6 @@
 package com.example.mygarage.ui.onboarding.screens
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,7 +25,7 @@ class FourthOnboardingScreen : Fragment() {
 
         view.startTxt.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
-           /* onBoardingFinished()*/
+            onBoardingFinished()
         }
 
         view.txtPrevious4.setOnClickListener {
@@ -36,11 +37,11 @@ class FourthOnboardingScreen : Fragment() {
         return view
     }
 
-/*    private fun onBoardingFinished() {
+    private fun onBoardingFinished() {
         val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putBoolean("Finished", true)
         editor.apply()
-    }*/
+    }
 
 }
