@@ -43,7 +43,7 @@ class Repository(private val apiCall : ApiEndpointCalls) {
         get() = profileLiveData
 
     private val sendBookingLiveData = MutableLiveData<BookingResponseItem>()
-    val sendBooking : LiveData<BookingResponseItem>
+    val sendBooking : MutableLiveData<BookingResponseItem>
         get() = sendBookingLiveData
 
     private val deleteBookingLiveData = MutableLiveData<BookingResponseItem>()

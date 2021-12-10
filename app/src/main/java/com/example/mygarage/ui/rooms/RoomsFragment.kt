@@ -40,11 +40,11 @@ class RoomsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.reserveMedialabId.setOnClickListener {
 
-            val actionMedia = RoomsFragmentDirections.actionNavigationRoomsToReservationsFragment("#D3E1FF","https://i.ibb.co/3SxC3VS/workathome.png","Media Lab",false,"")
+            val actionMedia = RoomsFragmentDirections.actionNavigationRoomsToReservationsFragment("#D3E1FF","https://i.ibb.co/3SxC3VS/workathome.png","Media Lab",false,"","","")
             view.findNavController().navigate(actionMedia)
         }
         binding.reserveWorkshopId.setOnClickListener {
-            val actionTools = RoomsFragmentDirections.actionNavigationRoomsToReservationsFragment("#D3E1FF","https://i.ibb.co/Qrs97PY/tools.png","Work Shop",false,"")
+            val actionTools = RoomsFragmentDirections.actionNavigationRoomsToReservationsFragment("#D3E1FF","https://i.ibb.co/Qrs97PY/tools.png","Work Shop",false,"","","")
             view.findNavController().navigate(actionTools)
         }
     }

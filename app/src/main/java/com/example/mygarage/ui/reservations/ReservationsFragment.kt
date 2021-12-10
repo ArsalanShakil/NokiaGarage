@@ -18,6 +18,7 @@ import com.example.mygarage.ui.signin.SignInViewModel
 import com.example.mygarage.ui.signup.SignUpViewModel
 import kotlinx.android.synthetic.main.fragment_reservations.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import java.text.SimpleDateFormat
 
 class ReservationsFragment : Fragment() {
 
@@ -39,16 +40,9 @@ class ReservationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val reservationImg = args.imgUrl
-        val reservationName = args.name
-        val reservationColor = args.color
-        val homeToBooking = args.homeToBooking
-        val bookingId = args.bookingId
-
-
-        reservation_layout.setBackgroundColor(Color.parseColor(reservationColor))
-        Glide.with(requireContext()).load(reservationImg).into(reservation_img)
-        reservation_tv.text = reservationName
+        reservation_layout.setBackgroundColor(Color.parseColor(args.color))
+        Glide.with(requireContext()).load(args.imgUrl).into(reservation_img)
+        reservation_tv.text = args.name
         pickStartDateBtn.setOnClickListener {
             showDatePickerDialog()
         }
@@ -72,20 +66,31 @@ class ReservationsFragment : Fragment() {
         }
 
 
-        if(homeToBooking) {
+        if(args.homeToBooking) {
             reservation_btn.visibility = View.GONE
             editReservationBtn.visibility = View.VISIBLE
             deleteReservationsBtn.visibility = View.VISIBLE
+            val dateFrom = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(args.dateFrom)
+            var dateFromString = SimpleDateFormat("dd LLLL yyyy, HH:mm").format(dateFrom)
+            val dateTo = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(args.dateTo)
+            var dateToString = SimpleDateFormat("dd LLLL yyyy, HH:mm").format(dateTo)
+            reservationsViewModel.startDateString.value = dateFromString
+            reservationsViewModel.endDateString.value = dateToString
 
         }
         else {
             editReservationBtn.visibility = View.GONE
             deleteReservationsBtn.visibility = View.GONE
             reservation_btn.visibility = View.VISIBLE
+            reservationsViewModel.startDateString.value = "Start date and time"
+            reservationsViewModel.endDateString.value = "End date and time"
         }
+
+
+
         reservation_btn.setOnClickListener {
             Log.d("setID", setId)
-            reservationsViewModel.postBooking(setStartDate,setEndDate,reservationName,setId,reservationImg)
+            reservationsViewModel.postBooking(setStartDate,setEndDate,args.name,setId,args.imgUrl)
 
             reservationsViewModel.sendBooking.observe(viewLifecycleOwner,{
                 Log.d("POST RESPONSE", it.toString())
@@ -94,15 +99,15 @@ class ReservationsFragment : Fragment() {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 } else {
                     findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
-
                 }
             })
 
         }
 
+
         editReservationBtn.setOnClickListener {
             Log.d("setID", setId)
-            reservationsViewModel.editBooking(bookingId,setStartDate,setEndDate,reservationName,setId,reservationImg)
+            reservationsViewModel.editBooking(args.bookingId,setStartDate,setEndDate,args.name,setId,args.imgUrl)
 
             reservationsViewModel.editBooking.observe(viewLifecycleOwner,{
                 Log.d("EDIT RESPONSE", it.toString())
@@ -112,23 +117,13 @@ class ReservationsFragment : Fragment() {
         }
 
         deleteReservationsBtn.setOnClickListener {
-            reservationsViewModel.deleteBooking(bookingId)
+            reservationsViewModel.deleteBooking(args.bookingId)
             reservationsViewModel.deleteBooking.observe(viewLifecycleOwner,{
                 Log.d("DELETE RESPONSE", it.toString())
                 findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
             })
 
         }
-
-
-
-
-
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        // TODO: Use the ViewModel
     }
 
     private fun showDatePickerDialog() {

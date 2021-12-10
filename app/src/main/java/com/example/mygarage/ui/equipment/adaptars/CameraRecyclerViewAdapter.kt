@@ -24,7 +24,7 @@ class CameraRecyclerViewAdapter(val context: Context, val cameras: List<Camera>)
         holder.cameraName.text = camera.name
         Glide.with(context).load(camera.thumbnail).into(holder.cameraImage)
         holder.itemView.setOnClickListener{ view ->
-            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#F5D4C1",camera.thumbnail,camera.name,false,"")
+            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#F5D4C1",camera.thumbnail,camera.name,false,"","","")
             view.findNavController().navigate(action)
         }
     }

@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ReservationsViewModel(val repository: Repository) : ViewModel() {
-    val sendBooking: LiveData<BookingResponseItem>
+    val sendBooking: MutableLiveData<BookingResponseItem>
         get() = repository.sendBooking
 
     val editBooking: LiveData<BookingResponseItem>
@@ -77,4 +77,5 @@ class ReservationsViewModel(val repository: Repository) : ViewModel() {
     fun checkResponse(message:String?):Boolean {
         return message.isNullOrEmpty()
     }
+
 }
