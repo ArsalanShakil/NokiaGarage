@@ -85,6 +85,13 @@
         <action
             android:id="@+id/action_reservationsFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
+        <argument
+            android:name="homeToBooking"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="bookingId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"

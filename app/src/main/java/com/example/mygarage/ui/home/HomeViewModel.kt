@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mygarage.network.articles.ArticlesData
 import com.example.mygarage.network.bookings.BookingResponse
+import com.example.mygarage.network.bookings.BookingResponseItem
 import com.example.mygarage.network.signin.SignInResponse
 import com.example.mygarage.network.signup.SignUpResponse
 import com.example.mygarage.repository.Repository
+import com.example.mygarage.ui.home.adapters.BookingRecyclerViewAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -27,6 +29,8 @@ class HomeViewModel(val repository: Repository) : ViewModel() {
     val bookingList: LiveData<BookingResponse>
         get() = repository.booking
 
+
+
     val signUp: LiveData<SignUpResponse>
         get() = repository.signUp
     val signIn: LiveData<SignInResponse>
@@ -34,6 +38,14 @@ class HomeViewModel(val repository: Repository) : ViewModel() {
     fun getUserBookings(id:String){
         viewModelScope.launch(Dispatchers.IO) {
             repository.getBooking(id)
+        }
+    }
+
+    val deleteBooking: LiveData<BookingResponseItem>
+        get() = repository.deleteBooking
+    fun deleteUserBooking(id:String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteBooking(id)
         }
     }
 }

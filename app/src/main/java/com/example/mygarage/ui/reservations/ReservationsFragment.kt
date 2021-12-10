@@ -41,9 +41,12 @@ class ReservationsFragment : Fragment() {
 
         val reservationImg = args.imgUrl
         val reservationName = args.name
-        val reservatioColor = args.color
+        val reservationColor = args.color
+        val homeToBooking = args.homeToBooking
+        val bookingId = args.bookingId
 
-        reservation_layout.setBackgroundColor(Color.parseColor(reservatioColor))
+
+        reservation_layout.setBackgroundColor(Color.parseColor(reservationColor))
         Glide.with(requireContext()).load(reservationImg).into(reservation_img)
         reservation_tv.text = reservationName
         pickStartDateBtn.setOnClickListener {
@@ -67,6 +70,19 @@ class ReservationsFragment : Fragment() {
         signUpViewModel.signUp.observeForever {
             setId = it._id
         }
+
+
+        if(homeToBooking) {
+            reservation_btn.visibility = View.GONE
+            editReservationBtn.visibility = View.VISIBLE
+            deleteReservationsBtn.visibility = View.VISIBLE
+
+        }
+        else {
+            editReservationBtn.visibility = View.GONE
+            deleteReservationsBtn.visibility = View.GONE
+            reservation_btn.visibility = View.VISIBLE
+        }
         reservation_btn.setOnClickListener {
             Log.d("setID", setId)
             reservationsViewModel.postBooking(setStartDate,setEndDate,reservationName,setId,reservationImg)
@@ -81,7 +97,32 @@ class ReservationsFragment : Fragment() {
 
                 }
             })
+
         }
+
+        editReservationBtn.setOnClickListener {
+            Log.d("setID", setId)
+            reservationsViewModel.editBooking(bookingId,setStartDate,setEndDate,reservationName,setId,reservationImg)
+
+            reservationsViewModel.editBooking.observe(viewLifecycleOwner,{
+                Log.d("EDIT RESPONSE", it.toString())
+                    findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
+            })
+
+        }
+
+        deleteReservationsBtn.setOnClickListener {
+            reservationsViewModel.deleteBooking(bookingId)
+            reservationsViewModel.deleteBooking.observe(viewLifecycleOwner,{
+                Log.d("DELETE RESPONSE", it.toString())
+                findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
+            })
+
+        }
+
+
+
+
 
     }
 

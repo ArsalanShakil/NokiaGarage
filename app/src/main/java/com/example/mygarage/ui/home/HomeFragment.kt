@@ -77,7 +77,6 @@ class HomeFragment : Fragment() {
             bookingsRecyclerview.adapter = bookingAdapter
             bookingsRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-
         })
     }
 

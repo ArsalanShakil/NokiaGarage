@@ -27,7 +27,7 @@ class VrRecyclerViewAdapter(val context: Context, val vrheadsets: List<VrHeadset
         holder.vrName.text = vrheadset.name
         Glide.with(context).load(vrheadset.thumbnail).into(holder.vrImage)
         holder.itemView.setOnClickListener{ view ->
-            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#D0F1EB",vrheadset.thumbnail,vrheadset.name)
+            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#D0F1EB",vrheadset.thumbnail,vrheadset.name,false,"")
             view.findNavController().navigate(action)
         }
     }

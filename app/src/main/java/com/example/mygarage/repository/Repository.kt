@@ -46,8 +46,16 @@ class Repository(private val apiCall : ApiEndpointCalls) {
     val sendBooking : LiveData<BookingResponseItem>
         get() = sendBookingLiveData
 
+    private val deleteBookingLiveData = MutableLiveData<BookingResponseItem>()
+    val deleteBooking : LiveData<BookingResponseItem>
+        get() = deleteBookingLiveData
 
-     suspend fun getArticles() {
+    private val editBookingLiveData = MutableLiveData<BookingResponseItem>()
+    val editBooking : LiveData<BookingResponseItem>
+        get() = editBookingLiveData
+
+
+    suspend fun getArticles() {
         val articleResult = apiCall.getArticles()
         if (articleResult?.body() != null) {
             articlesLiveData.postValue(articleResult.body())
@@ -95,6 +103,20 @@ class Repository(private val apiCall : ApiEndpointCalls) {
         val bookingResponse = apiCall.sendBooking(BookingData(dateTimeFrom,dateTimeTo,name,ownerUserId,url))
         if (bookingResponse?.body() != null) {
             sendBookingLiveData.postValue(bookingResponse.body())
+        }
+    }
+
+    suspend fun deleteBooking(bookingId : String) {
+        val deleteBookingResponse = apiCall.deleteBooking(bookingId)
+        if (deleteBookingResponse?.body() != null) {
+            deleteBookingLiveData.postValue(deleteBookingResponse.body())
+        }
+    }
+
+    suspend fun editBooking(bookingId : String,dateTimeFrom: String,dateTimeTo: String,name: String,ownerUserId: String,url: String) {
+        val editBookingResponse = apiCall.editBooking(bookingId,BookingData(dateTimeFrom,dateTimeTo,name,ownerUserId,url))
+        if (editBookingResponse?.body() != null) {
+            editBookingLiveData.postValue(editBookingResponse.body())
         }
     }
 }

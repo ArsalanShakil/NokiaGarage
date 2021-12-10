@@ -17,9 +17,27 @@ class ReservationsViewModel(val repository: Repository) : ViewModel() {
     val sendBooking: LiveData<BookingResponseItem>
         get() = repository.sendBooking
 
+    val editBooking: LiveData<BookingResponseItem>
+        get() = repository.editBooking
+
+    val deleteBooking: LiveData<BookingResponseItem>
+        get() = repository.deleteBooking
+
     fun postBooking(dateTimeFrom: String,dateTimeTo: String,name: String,ownerUserId: String,url: String){
         viewModelScope.launch(Dispatchers.IO) {
             repository.sendBooking(dateTimeFrom,dateTimeTo,name,ownerUserId,url)
+        }
+    }
+
+    fun editBooking(bookingId: String,dateTimeFrom: String,dateTimeTo: String,name: String,ownerUserId: String,url: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.editBooking(bookingId,dateTimeFrom,dateTimeTo,name,ownerUserId,url)
+        }
+    }
+
+    fun deleteBooking(bookingId:String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteBooking(bookingId)
         }
     }
     private val date = Calendar.getInstance()

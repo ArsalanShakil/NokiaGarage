@@ -11,10 +11,7 @@ import com.example.mygarage.network.signin.SignInResponse
 import com.example.mygarage.network.signup.SignUpData
 import com.example.mygarage.network.signup.SignUpResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiEndpointCalls {
     @GET("articles")
@@ -43,5 +40,12 @@ interface ApiEndpointCalls {
     @POST("bookings")
     suspend fun sendBooking(@Body params : BookingData): Response<BookingResponseItem>
 
+    @DELETE("bookings/{bookingId}")
+    suspend fun deleteBooking(
+        @Path("bookingId") bookingId : String
+    ): Response<BookingResponseItem>
+
+    @PUT("bookings/{bookingId}")
+    suspend fun editBooking(@Path("bookingId") bookingId : String,@Body params : BookingData): Response<BookingResponseItem>
 
 }

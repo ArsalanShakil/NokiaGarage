@@ -52,6 +52,7 @@
         <entry key="app/src/main/res/layout/equipment_loader_shimmer.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/fragment_article_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.2418478260869565" />
+        <entry key="app/src/main/res/layout/fragment_edit_booking.xml" value="0.16621376811594202" />
         <entry key="app/src/main/res/layout/fragment_equipment.xml" value="0.2553832846198941" />
         <entry key="app/src/main/res/layout/fragment_first_onboarding_screen.xml" value="0.22960520620127653" />
         <entry key="app/src/main/res/layout/fragment_fourth_onboarding_screen.xml" value="0.2807710524331308" />
@@ -59,7 +60,7 @@
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.2418478260869565" />
         <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2418478260869565" />
-        <entry key="app/src/main/res/layout/fragment_reservations.xml" value="0.38472160968964875" />
+        <entry key="app/src/main/res/layout/fragment_reservations.xml" value="0.23133677562127453" />
         <entry key="app/src/main/res/layout/fragment_rooms.xml" value="0.1393939393939394" />
         <entry key="app/src/main/res/layout/fragment_second_onboarding_screen.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.19899593763222587" />

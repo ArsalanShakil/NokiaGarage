@@ -24,7 +24,7 @@ class PrinterRecyclerViewAdapter(val context: Context, val printers: List<Printe
         holder.printerName.text = printer.name
         Glide.with(context).load(printer.thumbnail).into(holder.printerImage)
         holder.itemView.setOnClickListener{ view ->
-            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#D3E1FF",printer.thumbnail,printer.name)
+            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#D3E1FF",printer.thumbnail,printer.name,false,"")
             view.findNavController().navigate(action)
         }
     }
