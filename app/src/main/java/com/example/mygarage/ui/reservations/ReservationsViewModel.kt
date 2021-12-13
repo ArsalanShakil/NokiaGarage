@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ReservationsViewModel(val repository: Repository) : ViewModel() {
+
     val sendBooking: MutableLiveData<BookingResponseItem>
         get() = repository.sendBooking
 
@@ -22,6 +23,7 @@ class ReservationsViewModel(val repository: Repository) : ViewModel() {
 
     val deleteBooking: LiveData<BookingResponseItem>
         get() = repository.deleteBooking
+
 
     fun postBooking(dateTimeFrom: String,dateTimeTo: String,name: String,ownerUserId: String,url: String){
         viewModelScope.launch(Dispatchers.IO) {

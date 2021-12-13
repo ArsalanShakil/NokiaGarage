@@ -47,12 +47,13 @@ class SignUpFragment : Fragment() {
             loading.startLoading()
 
             signUpViewModel.signUpBtnClick()
-            signUpViewModel.signUp.observe(viewLifecycleOwner, {
-                loading.isDismiss()
-                Log.d("signUP", it.fullName)
-                findNavController().navigate(R.id.action_signUpFragment_to_navigation_home)
-            })
         }
+
+        signUpViewModel.signUp.observe(viewLifecycleOwner, {
+            loading.isDismiss()
+            Log.d("signUP", it.fullName)
+            findNavController().navigate(R.id.action_signUpFragment_to_navigation_home)
+        })
 
         signUpViewModel.isEnabled.observe(viewLifecycleOwner, {
             binding.signUpBtn.isEnabled = it

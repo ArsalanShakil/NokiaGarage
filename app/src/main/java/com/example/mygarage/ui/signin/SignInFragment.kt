@@ -19,6 +19,7 @@ class SignInFragment : Fragment() {
 
     private val signInViewModel: SignInViewModel by sharedViewModel()
 
+
     private lateinit var binding: FragmentSignInBinding
 
     // This property is only valid between onCreateView and

@@ -6,12 +6,14 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.widget.TimePicker
+import com.example.mygarage.R
 import com.example.mygarage.ui.reservations.ReservationsViewModel
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
 class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
-    private val viewModel: ReservationsViewModel by sharedViewModel()
+    private val viewModel: ReservationsViewModel by koinNavGraphViewModel(R.id.reservationsFragment)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Use the current time as the default values for the picker

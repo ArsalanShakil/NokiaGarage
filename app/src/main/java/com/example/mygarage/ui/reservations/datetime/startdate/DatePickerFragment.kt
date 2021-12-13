@@ -5,12 +5,14 @@ import android.app.Dialog
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
+import com.example.mygarage.R
 import com.example.mygarage.ui.reservations.ReservationsViewModel
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
-    private val viewModel: ReservationsViewModel by sharedViewModel()
+    private val viewModel: ReservationsViewModel by koinNavGraphViewModel(R.id.reservationsFragment)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Use the current date as the default date in the picker

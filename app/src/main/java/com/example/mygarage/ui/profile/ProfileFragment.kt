@@ -26,6 +26,7 @@ class ProfileFragment : Fragment() {
     private val profileViewModel by viewModel<ProfileViewModel>()
     private val signInViewModel: SignInViewModel by sharedViewModel()
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
+
     private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and

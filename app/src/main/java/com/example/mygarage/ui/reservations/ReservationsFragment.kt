@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -17,18 +18,19 @@ import com.example.mygarage.ui.reservations.datetime.startdate.DatePickerFragmen
 import com.example.mygarage.ui.signin.SignInViewModel
 import com.example.mygarage.ui.signup.SignUpViewModel
 import kotlinx.android.synthetic.main.fragment_reservations.*
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.text.SimpleDateFormat
 
 class ReservationsFragment : Fragment() {
 
-    private val reservationsViewModel: ReservationsViewModel by sharedViewModel()
     private val signInViewModel: SignInViewModel by sharedViewModel()
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
     private var setId = ""
     private var setStartDate = ""
     private var setEndDate = ""
     val args : ReservationsFragmentArgs by navArgs()
+    private val reservationsViewModel: ReservationsViewModel by koinNavGraphViewModel(R.id.reservationsFragment)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +51,22 @@ class ReservationsFragment : Fragment() {
         pickEndDateBtn.setOnClickListener {
             showEndDatePickerDialog()
         }
+
+        reservation_btn.setOnClickListener {
+            Log.d("setID", setId)
+            reservationsViewModel.postBooking(setStartDate,setEndDate,args.name,setId,args.imgUrl)
+
+        }
+
+        reservationsViewModel.sendBooking.observe(viewLifecycleOwner,{
+            Log.d("POST RESPONSE", it.toString())
+            if (!reservationsViewModel.checkResponse(it.message)) {
+                Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+            } else {
+                findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
+            }
+        })
+
         reservationsViewModel.startDateString.observe(viewLifecycleOwner,{
             pickStartDateBtn.text = it
             setStartDate = it
@@ -86,44 +104,22 @@ class ReservationsFragment : Fragment() {
             reservationsViewModel.endDateString.value = "End date and time"
         }
 
-
-
-        reservation_btn.setOnClickListener {
-            Log.d("setID", setId)
-            reservationsViewModel.postBooking(setStartDate,setEndDate,args.name,setId,args.imgUrl)
-
-            reservationsViewModel.sendBooking.observe(viewLifecycleOwner,{
-                Log.d("POST RESPONSE", it.toString())
-
-                if (!reservationsViewModel.checkResponse(it.message)){
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
-                } else {
-                    findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
-                }
-            })
-
-        }
-
-
         editReservationBtn.setOnClickListener {
             Log.d("setID", setId)
             reservationsViewModel.editBooking(args.bookingId,setStartDate,setEndDate,args.name,setId,args.imgUrl)
-
-            reservationsViewModel.editBooking.observe(viewLifecycleOwner,{
-                Log.d("EDIT RESPONSE", it.toString())
-                    findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
-            })
-
         }
+        reservationsViewModel.editBooking.observe(viewLifecycleOwner,{
+            Log.d("EDIT RESPONSE", it.toString())
+            findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
+        })
 
         deleteReservationsBtn.setOnClickListener {
             reservationsViewModel.deleteBooking(args.bookingId)
-            reservationsViewModel.deleteBooking.observe(viewLifecycleOwner,{
-                Log.d("DELETE RESPONSE", it.toString())
-                findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
-            })
-
         }
+        reservationsViewModel.deleteBooking.observe(viewLifecycleOwner,{
+            Log.d("DELETE RESPONSE", it.toString())
+            findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
+        })
     }
 
     private fun showDatePickerDialog() {

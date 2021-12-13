@@ -61,6 +61,8 @@ dependencies {
     testImplementation "io.insert-koin:koin-test:$koin_version"
     // Koin main features for Android (Scope,ViewModel ...)
     implementation "io.insert-koin:koin-android:$koin_version"
+    //KoinNavGraph
+    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
 
     //Mockito
     testImplementation "org.mockito:mockito-core:$mockito_version"
