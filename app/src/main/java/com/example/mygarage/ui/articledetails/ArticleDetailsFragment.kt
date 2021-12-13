@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.mygarage.R
 import com.example.mygarage.ui.home.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_article_details.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleDetailsFragment : Fragment() {
@@ -18,7 +19,7 @@ class ArticleDetailsFragment : Fragment() {
     val args : ArticleDetailsFragmentArgs by navArgs()
 
 
-    private val homeViewModel by viewModel<HomeViewModel>()
+    private val homeViewModel by sharedViewModel<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

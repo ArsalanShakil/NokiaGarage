@@ -1,6 +1,7 @@
 package com.example.mygarage.ui.equipment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import com.example.mygarage.ui.equipment.adaptars.CameraRecyclerViewAdapter
 import com.example.mygarage.ui.equipment.adaptars.OtherRecyclerViewAdapter
 import com.example.mygarage.ui.equipment.adaptars.PrinterRecyclerViewAdapter
 import com.example.mygarage.ui.equipment.adaptars.VrRecyclerViewAdapter
+import com.example.mygarage.ui.utils.ConnectivityCheck
+import com.example.mygarage.ui.utils.InternetCheckDialog
 import kotlinx.android.synthetic.main.fragment_equipment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -43,6 +46,24 @@ class EquipmentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val internetCheck =  ConnectivityCheck(requireContext())
+        val internetCheckDialog = InternetCheckDialog(requireActivity())
+        internetCheckDialog.startLoading()
+        internetCheckDialog.isDismiss()
+
+        internetCheck.observe(viewLifecycleOwner,{
+            if(it == true){
+                internetCheckDialog.isDismiss()
+                equipmentViewModel.getEquipments()
+            }
+            else {
+                internetCheckDialog.startLoading()
+            }
+        })
+
+
+
+
         binding.equipmentShimmerLayout.visibility = View.VISIBLE
         binding.equipmentConstraintLayout.visibility = View.GONE
         equipmentViewModel.equipmentList.observe(viewLifecycleOwner, {

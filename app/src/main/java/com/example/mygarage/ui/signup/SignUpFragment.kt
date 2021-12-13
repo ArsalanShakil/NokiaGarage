@@ -6,17 +6,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentSignUpBinding
+import com.example.mygarage.ui.signin.SignInViewModel
+import com.example.mygarage.ui.utils.ConnectivityCheck
+import com.example.mygarage.ui.utils.InternetCheckDialog
 import com.example.mygarage.ui.utils.LoadingDialog
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignUpFragment : Fragment() {
 
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
+
     private lateinit var binding: FragmentSignUpBinding
 
     // This property is only valid between onCreateView and
@@ -37,22 +43,33 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val internetCheck =  ConnectivityCheck(requireContext())
+        val internetCheckDialog = InternetCheckDialog(requireActivity())
+        internetCheckDialog.startLoading()
+        internetCheckDialog.isDismiss()
+
         val loading = LoadingDialog(requireActivity())
         binding.goBackTxt.setOnClickListener {
             findNavController().navigate(
                 R.id.action_signUpFragment_to_signInFragment
             )
         }
-        binding.signUpBtn.setOnClickListener {
-            loading.startLoading()
 
-            signUpViewModel.signUpBtnClick()
-        }
-
-        signUpViewModel.signUp.observe(viewLifecycleOwner, {
-            loading.isDismiss()
-            Log.d("signUP", it.fullName)
-            findNavController().navigate(R.id.action_signUpFragment_to_navigation_home)
+        internetCheck.observe(viewLifecycleOwner,{
+            if(it == true){
+                internetCheckDialog.isDismiss()
+                binding.signUpBtn.setOnClickListener {
+                    loading.startLoading()
+                    signUpViewModel.signUpBtnClick()
+                    signUpViewModel.signUp.observe(viewLifecycleOwner, {
+                        loading.isDismiss()
+                        findNavController().navigate(R.id.action_signUpFragment_to_navigation_home)
+                    })
+                }
+            }
+            else {
+                internetCheckDialog.startLoading()
+            }
         })
 
         signUpViewModel.isEnabled.observe(viewLifecycleOwner, {

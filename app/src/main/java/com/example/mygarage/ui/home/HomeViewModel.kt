@@ -17,12 +17,7 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(val repository: Repository) : ViewModel() {
 
-    //val id = MutableLiveData("")
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.getArticles()
-        }
-    }
+
     val articleList: LiveData<ArticlesData>
     get() = repository.articles
 
@@ -40,12 +35,11 @@ class HomeViewModel(val repository: Repository) : ViewModel() {
             repository.getBooking(id)
         }
     }
-
-    val deleteBooking: LiveData<BookingResponseItem>
-        get() = repository.deleteBooking
-    fun deleteUserBooking(id:String){
+    fun getArticles(){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteBooking(id)
+            repository.getArticles()
         }
     }
+
+
 }

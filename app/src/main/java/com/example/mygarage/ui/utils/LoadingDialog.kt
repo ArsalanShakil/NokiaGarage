@@ -22,3 +22,4 @@ class LoadingDialog(val mActivity: Activity) {
         isdialog.dismiss()
     }
 }
+

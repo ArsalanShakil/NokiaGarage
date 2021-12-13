@@ -17,6 +17,9 @@ import com.example.mygarage.ui.reservations.datetime.enddate.EndDatePickerFragme
 import com.example.mygarage.ui.reservations.datetime.startdate.DatePickerFragment
 import com.example.mygarage.ui.signin.SignInViewModel
 import com.example.mygarage.ui.signup.SignUpViewModel
+import com.example.mygarage.ui.utils.ConnectivityCheck
+import com.example.mygarage.ui.utils.InternetCheckDialog
+import com.example.mygarage.ui.utils.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_reservations.*
 import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -24,7 +27,8 @@ import java.text.SimpleDateFormat
 
 class ReservationsFragment : Fragment() {
 
-    private val signInViewModel: SignInViewModel by sharedViewModel()
+    private val signInViewModel: SignInViewModel by koinNavGraphViewModel(R.id.signInFragment)
+
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
     private var setId = ""
     private var setStartDate = ""
@@ -41,6 +45,10 @@ class ReservationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val internetCheck =  ConnectivityCheck(requireContext())
+        val internetCheckDialog = InternetCheckDialog(requireActivity())
+        internetCheckDialog.startLoading()
+        internetCheckDialog.isDismiss()
 
         reservation_layout.setBackgroundColor(Color.parseColor(args.color))
         Glide.with(requireContext()).load(args.imgUrl).into(reservation_img)
@@ -51,15 +59,29 @@ class ReservationsFragment : Fragment() {
         pickEndDateBtn.setOnClickListener {
             showEndDatePickerDialog()
         }
+        internetCheck.observe(viewLifecycleOwner,{
+            reservation_btn.isEnabled = it
+            editReservationBtn.isEnabled = it
+            deleteReservationsBtn.isEnabled = it
+            if(it == true){
+                internetCheckDialog.isDismiss()
+                reservation_btn.setOnClickListener {
+                    reservationsViewModel.postBooking(setStartDate,setEndDate,args.name,setId,args.imgUrl)
+                }
+                editReservationBtn.setOnClickListener {
+                    reservationsViewModel.editBooking(args.bookingId,setStartDate,setEndDate,args.name,setId,args.imgUrl)
+                }
+                deleteReservationsBtn.setOnClickListener {
+                    reservationsViewModel.deleteBooking(args.bookingId)
+                }
+            }
+            else {
+                internetCheckDialog.startLoading()
+            }
+        })
 
-        reservation_btn.setOnClickListener {
-            Log.d("setID", setId)
-            reservationsViewModel.postBooking(setStartDate,setEndDate,args.name,setId,args.imgUrl)
-
-        }
 
         reservationsViewModel.sendBooking.observe(viewLifecycleOwner,{
-            Log.d("POST RESPONSE", it.toString())
             if (!reservationsViewModel.checkResponse(it.message)) {
                 Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
             } else {
@@ -104,20 +126,13 @@ class ReservationsFragment : Fragment() {
             reservationsViewModel.endDateString.value = "End date and time"
         }
 
-        editReservationBtn.setOnClickListener {
-            Log.d("setID", setId)
-            reservationsViewModel.editBooking(args.bookingId,setStartDate,setEndDate,args.name,setId,args.imgUrl)
-        }
+
         reservationsViewModel.editBooking.observe(viewLifecycleOwner,{
-            Log.d("EDIT RESPONSE", it.toString())
             findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
         })
 
-        deleteReservationsBtn.setOnClickListener {
-            reservationsViewModel.deleteBooking(args.bookingId)
-        }
+
         reservationsViewModel.deleteBooking.observe(viewLifecycleOwner,{
-            Log.d("DELETE RESPONSE", it.toString())
             findNavController().navigate(R.id.action_reservationsFragment_to_navigation_home)
         })
     }

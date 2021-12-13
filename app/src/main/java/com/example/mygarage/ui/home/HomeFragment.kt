@@ -5,22 +5,28 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentHomeBinding
 import com.example.mygarage.ui.home.adapters.ArticleRecyclerViewAdapter
 import com.example.mygarage.ui.home.adapters.BookingRecyclerViewAdapter
 import com.example.mygarage.ui.signin.SignInViewModel
 import com.example.mygarage.ui.signup.SignUpViewModel
+import com.example.mygarage.ui.utils.ConnectivityCheck
+import com.example.mygarage.ui.utils.InternetCheckDialog
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_reservations.*
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
 
-    private val homeViewModel by viewModel<HomeViewModel>()
-    private val signInViewModel: SignInViewModel by sharedViewModel()
+    private val homeViewModel by sharedViewModel<HomeViewModel>()
+    private val signInViewModel: SignInViewModel by koinNavGraphViewModel(R.id.signInFragment)
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
 
     private var _binding: FragmentHomeBinding? = null
@@ -45,8 +51,30 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val internetCheck =  ConnectivityCheck(requireContext())
+        val internetCheckDialog = InternetCheckDialog(requireActivity())
+        internetCheckDialog.startLoading()
+        internetCheckDialog.isDismiss()
         binding.articleShimmerLayout.startShimmer()
         binding.bookingShimmerLayout.startShimmer()
+
+
+        internetCheck.observe(viewLifecycleOwner,{
+            if(it == true){
+                internetCheckDialog.isDismiss()
+                homeViewModel.getArticles()
+                signInViewModel.signIn.observeForever {
+                    homeViewModel.getUserBookings(it._id)
+                }
+                signUpViewModel.signUp.observeForever {
+                    homeViewModel.getUserBookings(it._id)
+                }
+            }
+            else {
+                internetCheckDialog.startLoading()
+            }
+        })
+
 
         homeViewModel.articleList.observe(viewLifecycleOwner, {
             binding.articleShimmerLayout.apply {
@@ -59,15 +87,7 @@ class HomeFragment : Fragment() {
         })
 
 
-        signInViewModel.signIn.observeForever {
-            Log.d("BOOKINGID-SIGNIN", it.toString())
-            //homeViewModel.id.postValue(it._id)
-            homeViewModel.getUserBookings(it._id)
-        }
-        signUpViewModel.signUp.observeForever {
-            Log.d("BOOKINGID-SIGNUP", it._id)
-            homeViewModel.getUserBookings(it._id)
-        }
+
         homeViewModel.bookingList.observe(viewLifecycleOwner, {
             binding.bookingShimmerLayout.apply {
                 hideShimmer()

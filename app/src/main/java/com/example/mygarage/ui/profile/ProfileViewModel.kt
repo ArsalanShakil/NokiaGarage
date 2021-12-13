@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProfileViewModel(val repository: Repository) : ViewModel() {
-    // TODO: Implement the ViewModel
 
     val profle: LiveData<ProfileResponse>
         get() = repository.profile

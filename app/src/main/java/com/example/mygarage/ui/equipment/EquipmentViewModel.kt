@@ -13,11 +13,13 @@ import kotlinx.coroutines.launch
 
 class EquipmentViewModel(val repository: Repository) : ViewModel() {
 
-    init {
+
+    val equipmentList: LiveData<EquipmentData>
+        get() = repository.equipment
+
+    fun getEquipments(){
         viewModelScope.launch(Dispatchers.IO) {
             repository.getEquipments()
         }
     }
-    val equipmentList: LiveData<EquipmentData>
-        get() = repository.equipment
 }

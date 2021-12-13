@@ -16,6 +16,9 @@ import com.example.mygarage.ui.equipment.EquipmentViewModel
 import com.example.mygarage.ui.home.HomeViewModel
 import com.example.mygarage.ui.signin.SignInViewModel
 import com.example.mygarage.ui.signup.SignUpViewModel
+import com.example.mygarage.ui.utils.ConnectivityCheck
+import com.example.mygarage.ui.utils.InternetCheckDialog
+import org.koin.androidx.navigation.koinNavGraphViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.log
@@ -24,7 +27,7 @@ class ProfileFragment : Fragment() {
 
 
     private val profileViewModel by viewModel<ProfileViewModel>()
-    private val signInViewModel: SignInViewModel by sharedViewModel()
+    private val signInViewModel: SignInViewModel by koinNavGraphViewModel(R.id.signInFragment)
     private val signUpViewModel: SignUpViewModel by sharedViewModel()
 
     private var _binding: FragmentProfileBinding? = null
@@ -46,22 +49,34 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val internetCheck =  ConnectivityCheck(requireContext())
+        val internetCheckDialog = InternetCheckDialog(requireActivity())
+        internetCheckDialog.startLoading()
+        internetCheckDialog.isDismiss()
 
         binding.logoutBtn.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_profile_to_signInFragment)
         }
 
-        signInViewModel.signIn.observeForever {
-           profileViewModel.setText(it._id)
-        }
-        signUpViewModel.signUp.observeForever {
-            profileViewModel.setText(it._id)
-        }
-        profileViewModel.profle.observe(viewLifecycleOwner,{
-            Log.d("Profile", it.fullName)
-            binding.usernameTxt.text = it.fullName
-            binding.emailTxt.text = it.email
+        internetCheck.observe(viewLifecycleOwner,{
+            if(it == true){
+                internetCheckDialog.isDismiss()
+                signInViewModel.signIn.observeForever {
+                    profileViewModel.setText(it._id)
+                }
+                signUpViewModel.signUp.observeForever {
+                    profileViewModel.setText(it._id)
+                }
+                profileViewModel.profle.observe(viewLifecycleOwner,{
+                    binding.usernameTxt.text = it.fullName
+                    binding.emailTxt.text = it.email
+                })
+            }
+            else {
+                internetCheckDialog.startLoading()
+            }
         })
+
 
     }
 

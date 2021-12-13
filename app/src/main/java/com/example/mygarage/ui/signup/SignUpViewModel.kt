@@ -1,5 +1,6 @@
 package com.example.mygarage.ui.signup
 
+
 import android.util.Patterns
 import androidx.lifecycle.*
 import com.example.mygarage.network.signup.SignUpResponse
@@ -66,4 +67,5 @@ class SignUpViewModel(private val repository: Repository) : ViewModel() {
     }
 
     fun CharSequence?.isValidEmail() = !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
 }

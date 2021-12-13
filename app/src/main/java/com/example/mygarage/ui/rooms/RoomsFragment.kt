@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mygarage.R
 import com.example.mygarage.databinding.FragmentRoomsBinding
 import com.example.mygarage.ui.equipment.EquipmentFragmentDirections
+import com.example.mygarage.ui.utils.ConnectivityCheck
 
 class RoomsFragment : Fragment() {
 
@@ -38,6 +39,7 @@ class RoomsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.reserveMedialabId.setOnClickListener {
 
             val actionMedia = RoomsFragmentDirections.actionNavigationRoomsToReservationsFragment("#D3E1FF","https://i.ibb.co/3SxC3VS/workathome.png","Media Lab",false,"","","")
