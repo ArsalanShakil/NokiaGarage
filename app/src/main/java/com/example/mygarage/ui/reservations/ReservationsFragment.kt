@@ -89,6 +89,10 @@ class ReservationsFragment : Fragment() {
             }
         })
 
+        goBackBtn.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
         reservationsViewModel.startDateString.observe(viewLifecycleOwner,{
             pickStartDateBtn.text = it
             setStartDate = it
@@ -106,7 +110,7 @@ class ReservationsFragment : Fragment() {
         }
 
 
-        if(args.homeToBooking) {
+        if(args.originFrom == "home") {
             reservation_btn.visibility = View.GONE
             editReservationBtn.visibility = View.VISIBLE
             deleteReservationsBtn.visibility = View.VISIBLE
@@ -145,5 +149,14 @@ class ReservationsFragment : Fragment() {
         val newFragment = EndDatePickerFragment()
         newFragment.show(requireActivity().supportFragmentManager, "enddatePicker")
     }
+    /*private fun checkOrigin(){
+        when(args.originFrom ) {
+            "home" -> findNavController().popBackStack()
+            "room" -> findNavController().navigate(R.id.action_navigation_rooms_to_reservationsFragment)
+            "equipment" -> findNavController().navigate(R.id.action_)
+
+        }
+
+    }*/
 
 }

@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_reservationsFragment"
-            app:destination="@id/reservationsFragment" />
+            app:destination="@id/reservationsFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_bottom" />
         <action
             android:id="@+id/action_navigation_home_to_articleDetailsFragment"
             app:destination="@id/articleDetailsFragment"
@@ -29,7 +31,9 @@
         tools:layout="@layout/fragment_equipment" >
         <action
             android:id="@+id/action_navigation_equipment_to_reservationsFragment"
-            app:destination="@id/reservationsFragment" />
+            app:destination="@id/reservationsFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
 
     <fragment
@@ -39,7 +43,9 @@
         tools:layout="@layout/fragment_rooms" >
         <action
             android:id="@+id/action_navigation_rooms_to_reservationsFragment"
-            app:destination="@id/reservationsFragment" />
+            app:destination="@id/reservationsFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/navigation_calendar"
@@ -86,9 +92,8 @@
             android:id="@+id/action_reservationsFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
         <argument
-            android:name="homeToBooking"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:name="originFrom"
+            app:argType="string" />
         <argument
             android:name="bookingId"
             app:argType="string" />

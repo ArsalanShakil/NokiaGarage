@@ -55,4 +55,11 @@ equipment or room</string>
     <string name="try_again">Try Again</string>
     <string name="no_internet_connection">No Internet Connection</string>
     <string name="check_your_internet_connection_and_try_again">Check your Internet Connection and Try Again</string>
+    <string name="pick_a_start_date_and_time">Pick a start date and time</string>
+    <string name="pick_a_end_date_and_time">Pick a end date and time</string>
+    <string name="close_button">close button</string>
+    <string name="close">close</string>
+    <string name="hello">Hello</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
 </resources>

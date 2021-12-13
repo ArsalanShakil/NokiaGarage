@@ -44,7 +44,7 @@ class BookingRecyclerViewAdapter(val context: Context, val bookings: List<Bookin
         holder.bookingToTitle.text = dateToString
         Glide.with(context).load(booking.url).into(holder.bookingImage)
         holder.itemView.setOnClickListener{ view ->
-            val action = HomeFragmentDirections.actionNavigationHomeToReservationsFragment("#D3E1FF",booking.url,booking.name,true,booking._id,booking.dateTimeFrom,booking.dateTimeTo)
+            val action = HomeFragmentDirections.actionNavigationHomeToReservationsFragment("#D3E1FF",booking.url,booking.name,"home",booking._id,booking.dateTimeFrom,booking.dateTimeTo)
             view.findNavController().navigate(action)
 
         }

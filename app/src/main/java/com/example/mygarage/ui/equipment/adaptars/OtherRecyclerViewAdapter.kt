@@ -26,7 +26,7 @@ class OtherRecyclerViewAdapter(val context: Context, val others: List<Other>) : 
         holder.otherName.text = other.name
         Glide.with(context).load(other.thumbnail).into(holder.otherImage)
         holder.itemView.setOnClickListener{ view ->
-            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#DED2F9",other.thumbnail,other.name,false,"","","")
+            val action = EquipmentFragmentDirections.actionNavigationEquipmentToReservationsFragment("#DED2F9",other.thumbnail,other.name,"equipment","","","")
             view.findNavController().navigate(action)
         }
     }
