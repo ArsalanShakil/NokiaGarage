@@ -29,12 +29,12 @@
         android:text="@string/your_reservations"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bookingsRecyclerview"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/articlesRecyclerview"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintVertical_bias="0.060000002" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/articleShimmerLayout"
@@ -119,12 +119,10 @@
         android:id="@+id/noUserReservationsTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:visibility="gone"
         android:text="@string/you_do_not_have_any_reservations_yet"
         app:layout_constraintBottom_toBottomOf="@+id/bookingsRecyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reservationsTxt"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.42000002" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -94,10 +94,12 @@ class HomeFragment : Fragment() {
                 visibility = View.GONE
             }
             if(it.isEmpty()){
+                bookingsRecyclerview.visibility = View.GONE
                 noUserReservationsTxt.visibility = View.VISIBLE
             }
             else {
                 noUserReservationsTxt.visibility = View.GONE
+                bookingsRecyclerview.visibility = View.VISIBLE
                 bookingAdapter = BookingRecyclerViewAdapter(requireContext(), it)
                 bookingsRecyclerview.adapter = bookingAdapter
                 bookingsRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
