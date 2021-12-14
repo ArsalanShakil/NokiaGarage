@@ -66,7 +66,7 @@ class ReservationsFragment : Fragment() {
             if(it == true){
                 internetCheckDialog.isDismiss()
                 reservation_btn.setOnClickListener {
-                    reservationsViewModel.postBooking(setStartDate,setEndDate,args.name,setId,args.imgUrl)
+                    checkReservationButton()
                 }
                 editReservationBtn.setOnClickListener {
                     reservationsViewModel.editBooking(args.bookingId,setStartDate,setEndDate,args.name,setId,args.imgUrl)
@@ -96,6 +96,7 @@ class ReservationsFragment : Fragment() {
         reservationsViewModel.startDateString.observe(viewLifecycleOwner,{
             pickStartDateBtn.text = it
             setStartDate = it
+
         })
         reservationsViewModel.endDateString.observe(viewLifecycleOwner,{
             pickEndDateBtn.text = it
@@ -149,14 +150,13 @@ class ReservationsFragment : Fragment() {
         val newFragment = EndDatePickerFragment()
         newFragment.show(requireActivity().supportFragmentManager, "enddatePicker")
     }
-    /*private fun checkOrigin(){
-        when(args.originFrom ) {
-            "home" -> findNavController().popBackStack()
-            "room" -> findNavController().navigate(R.id.action_navigation_rooms_to_reservationsFragment)
-            "equipment" -> findNavController().navigate(R.id.action_)
-
+    private fun checkReservationButton() {
+        if (setEndDate != "End date and time" && setStartDate !="Start date and time" ) {
+            reservationsViewModel.postBooking(setStartDate,setEndDate,args.name,setId,args.imgUrl)
         }
-
-    }*/
+        else {
+           Toast.makeText(requireContext(), "Please pick the start and end date", Toast.LENGTH_LONG).show()
+        }
+    }
 
 }

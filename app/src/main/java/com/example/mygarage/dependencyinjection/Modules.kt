@@ -3,6 +3,8 @@ package com.example.mygarage.dependencyinjection
 import com.example.mygarage.BuildConfig
 import com.example.mygarage.network.ApiEndpointCalls
 import com.example.mygarage.repository.Repository
+import com.example.mygarage.ui.calendar.CalendarFragment
+import com.example.mygarage.ui.calendar.CalendarViewModel
 import com.example.mygarage.ui.equipment.EquipmentFragment
 import com.example.mygarage.ui.equipment.EquipmentViewModel
 import com.example.mygarage.ui.home.HomeFragment
@@ -47,6 +49,7 @@ private val viewModelModule: Module = module {
     viewModel {SignInViewModel(get())}
     viewModel { SignUpViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
+    viewModel { CalendarViewModel(get()) }
 
 }
 private val fragmentModule: Module = module {
@@ -56,6 +59,7 @@ private val fragmentModule: Module = module {
     factory { SignUpFragment() }
     factory { ProfileFragment() }
     factory { ReservationsFragment() }
+    factory { CalendarFragment() }
 
 }
 

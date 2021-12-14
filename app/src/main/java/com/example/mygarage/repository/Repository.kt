@@ -54,6 +54,9 @@ class Repository(private val apiCall : ApiEndpointCalls) {
     val editBooking : LiveData<BookingResponseItem>
         get() = editBookingLiveData
 
+    private val dateBookingsLiveData = MutableLiveData<BookingResponse>()
+    val dateBooking : LiveData<BookingResponse>
+        get() = dateBookingsLiveData
 
     suspend fun getArticles() {
         val articleResult = apiCall.getArticles()
@@ -88,6 +91,13 @@ class Repository(private val apiCall : ApiEndpointCalls) {
         val bookingResponse = apiCall.getBooking(id)
         if (bookingResponse?.body() != null) {
             bookingsLiveData.postValue(bookingResponse.body())
+        }
+    }
+
+    suspend fun getDateBooking(dateFrom : String,dateTo : String) {
+        val dateBookingResponse = apiCall.getDateBooking(dateFrom,dateTo)
+        if (dateBookingResponse?.body() != null) {
+            dateBookingsLiveData.postValue(dateBookingResponse.body())
         }
     }
 

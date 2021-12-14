@@ -32,6 +32,12 @@ interface ApiEndpointCalls {
     ): Response<BookingResponse>
     //61a8da3dfcd193094cc902f6
 
+    @GET("bookings/date/{dateFrom}&{dateTo}")
+    suspend fun getDateBooking(
+        @Path("dateFrom") dateFrom : String,
+        @Path("dateTo") dateTo : String
+    ): Response<BookingResponse>
+
     @GET("users/{userId}")
     suspend fun getProfile(
         @Path("userId") id : String

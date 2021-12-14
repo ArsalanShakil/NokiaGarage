@@ -62,4 +62,6 @@ equipment or room</string>
     <string name="hello">Hello</string>
     <string name="from">From</string>
     <string name="to">To</string>
+    <string name="there_are_currently_no_reservations">There are currently no reservations</string>
+    <string name="you_do_not_have_any_reservations_yet">You do not have any reservations yet</string>
 </resources>

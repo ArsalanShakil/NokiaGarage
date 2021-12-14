@@ -93,9 +93,16 @@ class HomeFragment : Fragment() {
                 hideShimmer()
                 visibility = View.GONE
             }
-            bookingAdapter = BookingRecyclerViewAdapter(requireContext(), it)
-            bookingsRecyclerview.adapter = bookingAdapter
-            bookingsRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            if(it.isEmpty()){
+                noUserReservationsTxt.visibility = View.VISIBLE
+            }
+            else {
+                noUserReservationsTxt.visibility = View.GONE
+                bookingAdapter = BookingRecyclerViewAdapter(requireContext(), it)
+                bookingsRecyclerview.adapter = bookingAdapter
+                bookingsRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+            }
 
         })
     }
