@@ -30,8 +30,14 @@
 
 ## Overview of the app
 
-- - GIFS HERE OF APP
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/40695548/146215740-6662ed9c-d6f4-4c02-8161-9424cc81815d.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/40695548/146216862-2c2e6c9e-bfc3-46b5-9215-1642f7c9fe90.gif)
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/40695548/146218012-ae5956c5-ff64-444a-aad0-7714303ce1f3.gif)
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/40695548/146218944-08c0f991-8f11-4c26-9220-2358f87c0129.gif)
 
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/40695548/146219421-a22fbf56-d564-40d0-8b7a-1c396329e6c5.gif)
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/40695548/146219783-15a0b8d9-4aff-44d9-b3ab-5676ea5937f8.gif)
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/40695548/146220210-dac55e6b-b791-46ca-bdc6-af66b08201c9.gif)
 
 
 ## Architectural pattern
