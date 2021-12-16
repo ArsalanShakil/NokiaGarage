@@ -130,6 +130,7 @@
 #### - Assets used in the app contain Illustrations from
 - #### Saly - 3d illustration
 - #### Blush
+- #### icons8
 
 ## License
 *Free Software, Hell Yeah!*
